@@ -2,7 +2,6 @@
   <img src="docs/images/logo.png" alt="Disorderly logo" width="480">
 </p>
 
-
 Disorderly takes a disordered crystal structure and finds its low-energy ordered configurations. It can sample
 or exhaustively enumerate the symmetrically distinct orderings, or explore
 them at finite temperature with Metropolis Monte Carlo. Each configuration is
@@ -214,7 +213,7 @@ More tools for ordering disordered structures:
   G. L. W. Hart and R. W. Forcade, *Phys. Rev. B* **77**, 224115 (2008),
   [doi:10.1103/PhysRevB.77.224115](https://doi.org/10.1103/PhysRevB.77.224115).
 
-For cluster expansion and MC calculations, you may also check out:
+For cluster expansion and MC calculations, you can also check out:
 
 - [smol](https://github.com/CederGroupHub/smol) (Statistical Mechanics on
   Lattices).
