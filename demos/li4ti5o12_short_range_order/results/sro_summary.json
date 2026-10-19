@@ -1,0 +1,755 @@
+{
+ "supercell_of_primitive": [
+  2,
+  2,
+  3
+ ],
+ "n_sites": 168,
+ "n_16d_sites": 48,
+ "shell_radii_A": [
+  2.95,
+  5.12
+ ],
+ "shell_coordination": [
+  6,
+  12
+ ],
+ "random_baseline_alpha": [
+  -0.019450000000000037,
+  -0.020412499999999986
+ ],
+ "runs": [
+  {
+   "temperature_K": 2000.0,
+   "seed": 0,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.00225,
+   "runtime_s": 826.7435804000124,
+   "mean_energy_eV": -6026.624689687316,
+   "mean_energy_err": 0.0023164211478388427,
+   "heat_capacity_eV_per_K": 4.817991630620495e-06,
+   "lowest_energy_eV": -6026.652749990603,
+   "lowest_energy_key": "ok1___9va3_b",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1___9va3_b"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1__f9va3_7"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1___9va3_b"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1___9va3_b"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1___9va3_b"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1___9va3_b"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1__f9va3_7"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1__f9va3_7"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1___9va3_b"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1___9va3_b"
+    }
+   ],
+   "alpha_1": -0.19999999999999996,
+   "alpha_1_err": 1.423830986564892e-18,
+   "alpha_1_drift": 0.0,
+   "alpha_2": -0.06652260596742539,
+   "alpha_2_err": 0.0007096409311024971,
+   "alpha_2_drift": -0.00014521011974699682
+  },
+  {
+   "temperature_K": 5000.0,
+   "seed": 1,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.00045,
+   "runtime_s": 825.5102417999879,
+   "mean_energy_eV": -6029.061657873442,
+   "mean_energy_err": 0.023629082656296888,
+   "heat_capacity_eV_per_K": 3.430796163526718e-05,
+   "lowest_energy_eV": -6029.106024695312,
+   "lowest_energy_key": "ok1_dtz__7_3",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_dtz__7_3"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_dtz__7_3"
+    }
+   ],
+   "alpha_1": -0.19999999999999996,
+   "alpha_1_err": 1.423830986564892e-18,
+   "alpha_1_drift": 0.0,
+   "alpha_2": -0.07455000562492967,
+   "alpha_2_err": 0.00038276929804559264,
+   "alpha_2_drift": -0.0007575017812054691
+  },
+  {
+   "temperature_K": 10000.0,
+   "seed": 2,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.00837,
+   "runtime_s": 823.7383033001097,
+   "mean_energy_eV": -6027.935901688985,
+   "mean_energy_err": 0.39788285493347103,
+   "heat_capacity_eV_per_K": 0.0006750360648120923,
+   "lowest_energy_eV": -6030.898856564517,
+   "lowest_energy_key": "ok1_ff__11--",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_9__3y9ff"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_u9f_zP__"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1__ve3r8__"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1_uu__dd__"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_uu__dd__"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1____7u8z3"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1____t2bb_"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1____t2bb_"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1___t__3ea"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_32v_9__L"
+    }
+   ],
+   "alpha_1": -0.19999999999999996,
+   "alpha_1_err": 1.423830986564892e-18,
+   "alpha_1_drift": 0.0,
+   "alpha_2": -0.08301739978250271,
+   "alpha_2_err": 0.0030922064110097225,
+   "alpha_2_drift": 0.0053138840122747
+  },
+  {
+   "temperature_K": 20000.0,
+   "seed": 3,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.05035,
+   "runtime_s": 823.1600436000153,
+   "mean_energy_eV": -6023.405342157793,
+   "mean_energy_err": 0.15405168197492938,
+   "heat_capacity_eV_per_K": 0.00025354837090635005,
+   "lowest_energy_eV": -6030.898856564517,
+   "lowest_energy_key": "ok1___2_t2_b",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_v3_bx-__"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_99T__7_n"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_f-__1R__"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1_3___pj_9"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_t92__7b_"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1_9__13_af"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1_9t7ff__2"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_397_d6_v"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_rb_v-_33"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_3ufbu___"
+    }
+   ],
+   "alpha_1": -0.19989562630467117,
+   "alpha_1_err": 4.6473278612554564e-05,
+   "alpha_1_drift": -7.625165620858687e-05,
+   "alpha_2": -0.04018637267034161,
+   "alpha_2_err": 0.002263354551626942,
+   "alpha_2_drift": -0.005635174901877454
+  },
+  {
+   "temperature_K": 30000.0,
+   "seed": 4,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.08536,
+   "runtime_s": 826.1762101999484,
+   "mean_energy_eV": -6020.856398082523,
+   "mean_energy_err": 0.08228867213043847,
+   "heat_capacity_eV_per_K": 0.00021725345875855013,
+   "lowest_energy_eV": -6030.898856564518,
+   "lowest_energy_key": "ok1____22tb_",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_3--_9lf_"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_6___devv"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_n1bf_-__"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1___c__F_-"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_f_7__9k3"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1_b7-__Wv_"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1_v_f_34-f"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_je__87__"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_b_tv_733"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1______PH4"
+    }
+   ],
+   "alpha_1": -0.1982412719841002,
+   "alpha_1_err": 0.0002241342256359318,
+   "alpha_1_drift": -0.0003225399365015813,
+   "alpha_2": -0.021553793077586515,
+   "alpha_2_err": 0.0017207983430425845,
+   "alpha_2_drift": 0.003288622737556559
+  },
+  {
+   "temperature_K": 45000.0,
+   "seed": 5,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.14051,
+   "runtime_s": 825.2811226000777,
+   "mean_energy_eV": -6017.035618657282,
+   "mean_energy_err": 0.16210578114432694,
+   "heat_capacity_eV_per_K": 0.0002760934987621825,
+   "lowest_energy_eV": -6030.898856564516,
+   "lowest_energy_key": "ok1_--__11ff",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_7__73_c8"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_9vb__V_-"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_xvv9_7-_"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1_v89zf_7_"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_7v__f_8V"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1_n_-_7pf_"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1_78__973P"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_Ge9____9"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_79-y1___"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1___93-vX5"
+    }
+   ],
+   "alpha_1": -0.18992700091248857,
+   "alpha_1_err": 0.0004407779948720675,
+   "alpha_1_drift": 0.0019284740693982505,
+   "alpha_2": -0.013738265771677841,
+   "alpha_2_err": 0.0011256539975117387,
+   "alpha_2_drift": -0.002081505524861877
+  },
+  {
+   "temperature_K": 70000.0,
+   "seed": 6,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.24811,
+   "runtime_s": 823.0926042000065,
+   "mean_energy_eV": -6009.678108029985,
+   "mean_energy_err": 0.23819877073069698,
+   "heat_capacity_eV_per_K": 0.00029071407016332515,
+   "lowest_energy_eV": -6028.0704270154565,
+   "lowest_energy_key": "ok1__-__cfvr",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_7nf7_-8_"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_v_3_ef_x"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_3__N_7c_"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1_2__N__L_"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_f7pf__-v"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1__9_e_jX_"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1__mf76__9"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_P9xf___-"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_77s__f_n"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_531zv___"
+    }
+   ],
+   "alpha_1": -0.1697178785265184,
+   "alpha_1_err": 0.0006801569137268426,
+   "alpha_1_drift": -0.0026432240131496754,
+   "alpha_2": -0.010335495806302409,
+   "alpha_2_err": 0.0009151382892649275,
+   "alpha_2_drift": -0.0003472372721931953
+  },
+  {
+   "temperature_K": 100000.0,
+   "seed": 7,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.3657,
+   "runtime_s": 822.3829152999679,
+   "mean_energy_eV": -6001.5749475992325,
+   "mean_energy_err": 0.20392874111403517,
+   "heat_capacity_eV_per_K": 0.00023125016910257389,
+   "lowest_energy_eV": -6028.201010777714,
+   "lowest_energy_key": "ok1____7t823",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_l_3_f_76"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1__9_Xva7_"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_x-99__P_"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1_f97f_9-2"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1__ub__3v6"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1_3fv_9r6_"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1_-ed5___9"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_cb_97_v_"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_3_ffn3--"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_Du9__7__"
+    }
+   ],
+   "alpha_1": -0.14646129423382206,
+   "alpha_1_err": 0.0005356895708098603,
+   "alpha_1_drift": 0.0011998965338366474,
+   "alpha_2": -0.012854526818414758,
+   "alpha_2_err": 0.000807526185196287,
+   "alpha_2_drift": -0.0013777864147146313
+  },
+  {
+   "temperature_K": 150000.0,
+   "seed": 8,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.50485,
+   "runtime_s": 831.0480891999323,
+   "mean_energy_eV": -5992.169778192421,
+   "mean_energy_err": 0.13929853740693335,
+   "heat_capacity_eV_per_K": 0.00015175558645209123,
+   "lowest_energy_eV": -6030.898856564519,
+   "lowest_energy_key": "ok1____2btt_",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_v_rfX9_3"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_7v-28-__"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_7_etvf3_"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1__ff_m36_"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_83_45___"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1__fX9-6_f"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1_79-mP___"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_9u__v9fX"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_-_f9r-37"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_v-b__93e"
+    }
+   ],
+   "alpha_1": -0.119664129198385,
+   "alpha_1_err": 0.0004416460497452741,
+   "alpha_1_drift": 0.0007442323004424739,
+   "alpha_2": -0.017567592905088674,
+   "alpha_2_err": 0.000478506597616108,
+   "alpha_2_drift": -0.00015268390165245824
+  },
+  {
+   "temperature_K": 250000.0,
+   "seed": 9,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.65786,
+   "runtime_s": 817.9617159999907,
+   "mean_energy_eV": -5981.473552747686,
+   "mean_energy_err": 0.1726383708827286,
+   "heat_capacity_eV_per_K": 7.582462515971804e-05,
+   "lowest_energy_eV": -6030.898856564516,
+   "lowest_energy_key": "ok1_ff__zz99",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1___z_8J__"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_8__-1t_7"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1___rv-_7L"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1__W__-v75"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_9__ef7uv"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1____0tvf9"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1_v_ef_ftv"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_3__8t_j_"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1___n3_87r"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_v_5_--_T"
+    }
+   ],
+   "alpha_1": -0.09103636204547443,
+   "alpha_1_err": 0.0005305515501698613,
+   "alpha_1_drift": 6.72750681233042e-05,
+   "alpha_2": -0.0207066161672979,
+   "alpha_2_err": 0.000563873093753562,
+   "alpha_2_drift": -0.0008569716225844369
+  },
+  {
+   "temperature_K": 500000.0,
+   "seed": 10,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.80823,
+   "runtime_s": 828.5622051999671,
+   "mean_energy_eV": -5969.484621591585,
+   "mean_energy_err": 0.23697581372144022,
+   "heat_capacity_eV_per_K": 2.8193313630096285e-05,
+   "lowest_energy_eV": -6030.5612282539605,
+   "lowest_energy_key": "ok1_____tb2t",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_6--57_9_"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_9f_v_j_X"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_vV_3_99v"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1_973X2__3"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_X_v_f_65"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1__vet3_77"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1__vfd_372"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1____3o_9r"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_7_---1v9"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_7N9u_3__"
+    }
+   ],
+   "alpha_1": -0.06119361007987399,
+   "alpha_1_err": 0.0006281125335850688,
+   "alpha_1_drift": 0.0030102422126946776,
+   "alpha_2": -0.021989100136248288,
+   "alpha_2_err": 0.0005092550534210377,
+   "alpha_2_drift": 0.0008267893927651829
+  },
+  {
+   "temperature_K": 1000000.0,
+   "seed": 11,
+   "steps": 100000,
+   "equilibration": 20000,
+   "acceptance_rate": 0.89621,
+   "runtime_s": 823.7057158999378,
+   "mean_energy_eV": -5962.050515496064,
+   "mean_energy_err": 0.21335153975518725,
+   "heat_capacity_eV_per_K": 8.959565733892948e-06,
+   "lowest_energy_eV": -6027.373232052921,
+   "lowest_energy_key": "ok1_dt7__733",
+   "snapshots": [
+    {
+     "step": 24000,
+     "ordering_key": "ok1_7h_6_9__"
+    },
+    {
+     "step": 32000,
+     "ordering_key": "ok1_39r_ve_f"
+    },
+    {
+     "step": 40000,
+     "ordering_key": "ok1_f73_f-r9"
+    },
+    {
+     "step": 48000,
+     "ordering_key": "ok1_v_a-373_"
+    },
+    {
+     "step": 56000,
+     "ordering_key": "ok1_3G___-7v"
+    },
+    {
+     "step": 64000,
+     "ordering_key": "ok1_25_6_9-_"
+    },
+    {
+     "step": 72000,
+     "ordering_key": "ok1_f_v19f3v"
+    },
+    {
+     "step": 80000,
+     "ordering_key": "ok1_38_3_9Pf"
+    },
+    {
+     "step": 88000,
+     "ordering_key": "ok1_-3z5t___"
+    },
+    {
+     "step": 96000,
+     "ordering_key": "ok1_3577_-3f"
+    }
+   ],
+   "alpha_1": -0.04415882301471231,
+   "alpha_1_err": 0.000456932979106109,
+   "alpha_1_drift": 0.0004948477850553745,
+   "alpha_2": -0.0218516018549768,
+   "alpha_2_err": 0.00039950153053366964,
+   "alpha_2_drift": -0.0009819414358391045
+  }
+ ]
+}

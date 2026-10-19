@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "disorder-mc"
+dynamic = ["version"]
+description = "Tools for exploring ordered configurations of disordered crystal structures via symmetry analysis, Ewald energetics, and Monte Carlo ordering, built on pymatgen."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Charlie Schwarz" }]
+keywords = [
+    "materials science",
+    "crystallography",
+    "disorder",
+    "Monte Carlo",
+    "Ewald",
+    "pymatgen",
+    "symmetry",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "pymatgen>=2023.1.1",
+    "numpy>=1.23",
+    "monty>=2023.9.25",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+]
+plot = [
+    "matplotlib>=3.8",
+]
+notebooks = [
+    "matplotlib>=3.8",
+    "jupyter",
+    "nbformat",
+    "nbclient",
+]
+mace = [
+    "ase",
+    "mace-torch",
+]
+chgnet = [
+    "ase",
+    "chgnet>=0.3.0",
+]
+icet = [
+    "icet",
+]
+
+[project.urls]
+Homepage = "https://github.com/CharlesSchwarz/disorderly"
+Repository = "https://github.com/CharlesSchwarz/disorderly"
+Issues = "https://github.com/CharlesSchwarz/disorderly/issues"
+
+[project.scripts]
+run-monte-carlo = "disorder_mc.cli.run_monte_carlo:main"
+run-random-sampling = "disorder_mc.cli.run_random_sampling:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "disorder_mc.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

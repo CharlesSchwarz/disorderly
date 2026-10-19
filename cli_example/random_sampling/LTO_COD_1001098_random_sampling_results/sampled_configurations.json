@@ -1,0 +1,32 @@
+[
+  {
+    "step": 5,
+    "energy": -438.08189143732324,
+    "properties": {},
+    "ordering_key": "ok1_918"
+  },
+  {
+    "step": 4,
+    "energy": -437.32417936780666,
+    "properties": {},
+    "ordering_key": "ok1_-74"
+  },
+  {
+    "step": 2,
+    "energy": -437.12345022031184,
+    "properties": {},
+    "ordering_key": "ok1_X_s"
+  },
+  {
+    "step": 0,
+    "energy": -436.70775194309743,
+    "properties": {},
+    "ordering_key": "ok1_9_M"
+  },
+  {
+    "step": 6,
+    "energy": -436.5780024842303,
+    "properties": {},
+    "ordering_key": "ok1_f_U"
+  }
+]

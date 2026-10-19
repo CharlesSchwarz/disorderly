@@ -1,0 +1,33 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+dist/
+sandbox/
+.ipynb_checkpoints/
+AGENTS.md
+CLAUDE.md
+SPEC.md
+package_structure.md
+.claude/
+old_example_code/
+disordered_structures.py
+
+# Large raw demo outputs
+demos/*/results/raw/
+
+# Bulk COD download for the MgAl2O4 inversion demo (parsed into demos/mgal2o4_inversion/data/)
+demos/mgal2o4_inversion/COD/
+demos/mgal2o4_inversion/COD.zip
+demos/mgal2o4_inversion/COD-selection.csv
+demos/mgal2o4_inversion/sweep/
+
+# MACE Monte Carlo run folders for the Li4Ti5O12 short-range-order demo
+demos/li4ti5o12_short_range_order/sweep/
+
+# Files written by the tutorial notebooks
+notebooks/random_sampling_out/
+notebooks/mc_example_out/

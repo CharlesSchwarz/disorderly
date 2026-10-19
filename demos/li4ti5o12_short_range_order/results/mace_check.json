@@ -1,0 +1,239 @@
+{
+ "model": "MACE-matpes-r2scan-omat-ft.model",
+ "device": "cpu",
+ "fmax": 0.05,
+ "groups": {
+  "MC 20000 K": {
+   "alpha_1": -0.19999999999999998,
+   "ewald_eV_per_16d_Li_vs_random": -8.84554692538211,
+   "ewald_eV_per_16d_Li_vs_random_err": 0.17175955387303174,
+   "mace_single_point_eV_per_16d_Li_vs_random": -0.9287910070837787,
+   "mace_single_point_eV_per_16d_Li_vs_random_err": 0.029111088823784586,
+   "mace_relaxed_eV_per_16d_Li_vs_random": -0.4644878623339821,
+   "mace_relaxed_eV_per_16d_Li_vs_random_err": 0.017312138154531944
+  },
+  "MC 150000 K": {
+   "alpha_1": -0.15833333333333333,
+   "ewald_eV_per_16d_Li_vs_random": -6.4549472226808575,
+   "ewald_eV_per_16d_Li_vs_random_err": 0.3439499117405199,
+   "mace_single_point_eV_per_16d_Li_vs_random": -0.6619829764655378,
+   "mace_single_point_eV_per_16d_Li_vs_random_err": 0.04113849851704807,
+   "mace_relaxed_eV_per_16d_Li_vs_random": -0.40002247521712303,
+   "mace_relaxed_eV_per_16d_Li_vs_random_err": 0.02221387927877759
+  },
+  "random": {
+   "alpha_1": -0.033333333333333326,
+   "ewald_eV_per_16d_Li_vs_random": 3.789561257387201e-14,
+   "ewald_eV_per_16d_Li_vs_random_err": 1.7257317495914872,
+   "mace_single_point_eV_per_16d_Li_vs_random": -3.789561257387201e-14,
+   "mace_single_point_eV_per_16d_Li_vs_random_err": 0.15862492081359578,
+   "mace_relaxed_eV_per_16d_Li_vs_random": -2.842170943040401e-14,
+   "mace_relaxed_eV_per_16d_Li_vs_random_err": 0.15615475153408168
+  }
+ },
+ "spearman_alpha_1_vs_energy": {
+  "ewald_eV": 0.9448360814860982,
+  "mace_single_point_eV": 0.9480903963477036,
+  "mace_relaxed_eV": 0.8916822720798768
+ },
+ "structures": [
+  {
+   "group": "MC 20000 K",
+   "ordering_key": "ok1_t92__7b_",
+   "alpha": [
+    -0.19999999999999998,
+    -0.024999999999999977
+   ],
+   "ewald_eV": -6020.367385362627,
+   "mace_single_point_eV": -1664.1892006307019,
+   "mace_relaxed_eV": -1676.5506917685086
+  },
+  {
+   "group": "MC 20000 K",
+   "ordering_key": "ok1_9__13_af",
+   "alpha": [
+    -0.19999999999999998,
+    -0.07499999999999998
+   ],
+   "ewald_eV": -6028.071460156043,
+   "mace_single_point_eV": -1665.6687816945355,
+   "mace_relaxed_eV": -1677.316777749957
+  },
+  {
+   "group": "MC 20000 K",
+   "ordering_key": "ok1_9t7ff__2",
+   "alpha": [
+    -0.19999999999999998,
+    -0.07499999999999998
+   ],
+   "ewald_eV": -6026.021425288489,
+   "mace_single_point_eV": -1665.0135977536759,
+   "mace_relaxed_eV": -1677.1574890892325
+  },
+  {
+   "group": "MC 20000 K",
+   "ordering_key": "ok1_397_d6_v",
+   "alpha": [
+    -0.19999999999999998,
+    0.0
+   ],
+   "ewald_eV": -6025.543976505511,
+   "mace_single_point_eV": -1665.349836575629,
+   "mace_relaxed_eV": -1677.4184141425417
+  },
+  {
+   "group": "MC 20000 K",
+   "ordering_key": "ok1_rb_v-_33",
+   "alpha": [
+    -0.19999999999999998,
+    -0.07499999999999998
+   ],
+   "ewald_eV": -6027.373232052921,
+   "mace_single_point_eV": -1665.3560979931412,
+   "mace_relaxed_eV": -1677.148697649655
+  },
+  {
+   "group": "MC 20000 K",
+   "ordering_key": "ok1_3ufbu___",
+   "alpha": [
+    -0.19999999999999998,
+    -0.04999999999999999
+   ],
+   "ewald_eV": -6020.587965641813,
+   "mace_single_point_eV": -1664.4769624395462,
+   "mace_relaxed_eV": -1676.7368236905118
+  },
+  {
+   "group": "MC 150000 K",
+   "ordering_key": "ok1_83_45___",
+   "alpha": [
+    -0.15,
+    0.02500000000000001
+   ],
+   "ewald_eV": -6000.844576367187,
+   "mace_single_point_eV": -1662.327427069966,
+   "mace_relaxed_eV": -1676.2994159117538
+  },
+  {
+   "group": "MC 150000 K",
+   "ordering_key": "ok1__fX9-6_f",
+   "alpha": [
+    -0.15,
+    0.0
+   ],
+   "ewald_eV": -6009.859036084669,
+   "mace_single_point_eV": -1663.318835249655,
+   "mace_relaxed_eV": -1676.7303562161069
+  },
+  {
+   "group": "MC 150000 K",
+   "ordering_key": "ok1_79-mP___",
+   "alpha": [
+    -0.15,
+    -0.07499999999999998
+   ],
+   "ewald_eV": -6008.250180075995,
+   "mace_single_point_eV": -1662.6269981384783,
+   "mace_relaxed_eV": -1676.1436761247119
+  },
+  {
+   "group": "MC 150000 K",
+   "ordering_key": "ok1_9u__v9fX",
+   "alpha": [
+    -0.15,
+    -0.04999999999999999
+   ],
+   "ewald_eV": -5998.618709403016,
+   "mace_single_point_eV": -1662.0946226332526,
+   "mace_relaxed_eV": -1676.1388434700755
+  },
+  {
+   "group": "MC 150000 K",
+   "ordering_key": "ok1_-_f9r-37",
+   "alpha": [
+    -0.19999999999999998,
+    0.12499999999999999
+   ],
+   "ewald_eV": -6015.592949587304,
+   "mace_single_point_eV": -1664.2895540940399,
+   "mace_relaxed_eV": -1677.261649596503
+  },
+  {
+   "group": "MC 150000 K",
+   "ordering_key": "ok1_v-b__93e",
+   "alpha": [
+    -0.15,
+    0.02500000000000001
+   ],
+   "ewald_eV": -6000.051207759572,
+   "mace_single_point_eV": -1662.5902544321625,
+   "mace_relaxed_eV": -1676.6606141896464
+  },
+  {
+   "group": "random",
+   "ordering_key": "ok1_-_b_f_1b",
+   "alpha": [
+    -0.09999999999999999,
+    0.1
+   ],
+   "ewald_eV": -5956.7413169935635,
+   "mace_single_point_eV": -1657.9954094148486,
+   "mace_relaxed_eV": -1674.6227381697004
+  },
+  {
+   "group": "random",
+   "ordering_key": "ok1__5v3-t_9",
+   "alpha": [
+    0.1,
+    0.0
+   ],
+   "ewald_eV": -5900.1574484893545,
+   "mace_single_point_eV": -1654.1458025802553,
+   "mace_relaxed_eV": -1668.5259744251393
+  },
+  {
+   "group": "random",
+   "ordering_key": "ok1__7_72_9V",
+   "alpha": [
+    -0.04999999999999999,
+    -0.07499999999999998
+   ],
+   "ewald_eV": -5979.854508017227,
+   "mace_single_point_eV": -1658.910118766623,
+   "mace_relaxed_eV": -1675.357989425544
+  },
+  {
+   "group": "random",
+   "ordering_key": "ok1_99_-u793",
+   "alpha": [
+    0.05000000000000002,
+    -0.04999999999999999
+   ],
+   "ewald_eV": -5932.202840762798,
+   "mace_single_point_eV": -1654.7410066388693,
+   "mace_relaxed_eV": -1671.3949137516506
+  },
+  {
+   "group": "random",
+   "ordering_key": "ok1_-v7599_3",
+   "alpha": [
+    -0.15,
+    0.05000000000000002
+   ],
+   "ewald_eV": -5994.393715432607,
+   "mace_single_point_eV": -1662.6948571597982,
+   "mace_relaxed_eV": -1677.0888370627827
+  },
+  {
+   "group": "random",
+   "ordering_key": "ok1_33f_T8__",
+   "alpha": [
+    -0.04999999999999999,
+    -0.04999999999999999
+   ],
+   "ewald_eV": -5960.029362893511,
+   "mace_single_point_eV": -1656.9853141868157,
+   "mace_relaxed_eV": -1673.04302386356
+  }
+ ]
+}

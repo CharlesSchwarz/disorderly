@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "disorder_mc"
+abstract: >-
+  Tools for exploring ordered configurations of disordered crystal structures,
+  built on pymatgen: symmetry analysis, configuration degeneracy,
+  disordered-structure Ewald energetics, energy-ranked random sampling,
+  exhaustive enumeration, and a configurable Monte Carlo ordering engine.
+authors:
+  - given-names: Charlie
+    family-names: Schwarz
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/CharlesSchwarz/disorderly"
+url: "https://github.com/CharlesSchwarz/disorderly"
+keywords:
+  - materials science
+  - crystallography
+  - disorder
+  - Monte Carlo
+  - Ewald
+  - pymatgen
