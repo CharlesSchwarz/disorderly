@@ -140,7 +140,10 @@ version, `random_ewald_sampling`):
 3. keeps a bounded, energy-sorted pool of the lowest-energy candidates
    (`candidate_pool_size`, default `max(5 * n_return, 50)`) rather than every
    attempt, so memory does not grow with `n_attempts`;
-4. removes symmetry duplicates within that pool with `symmetrically_equivalent`;
+4. removes symmetry duplicates within that pool: a candidate whose ordering
+   key has already been seen is an identical ordering and is dropped
+   directly, and only new orderings are compared with
+   `symmetrically_equivalent`;
 5. returns up to `n_return` distinct configurations, lowest energy first.
 
 Because only the pool is deduplicated, if many low-energy attempts are

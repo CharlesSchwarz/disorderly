@@ -336,3 +336,73 @@ def test_random_ordered_configuration_default_rng_is_shared_seed_zero(lattice, m
     expected = [species(random_ordered_configuration(parent, reference_rng)) for _ in range(5)]
     assert defaults == expected
     assert len({tuple(d) for d in defaults}) > 1
+
+
+def _sampled_pool(parent, n, seed):
+    """``n`` random configurations of ``parent`` as an energy-sorted pool
+    with their ordering keys, scored by Ewald energy."""
+    from disorderly.energy import disordered_ewald_energy
+    from disorderly.ordering import ordering_key
+    from disorderly.results import SavedConfiguration
+
+    rng = np.random.default_rng(seed)
+    pool = []
+    for step in range(n):
+        config = random_ordered_configuration(parent, rng)
+        pool.append(
+            SavedConfiguration(
+                step=step,
+                energy=disordered_ewald_energy(config),
+                structure=config,
+                ordering_key=ordering_key(parent, config),
+            )
+        )
+    pool.sort(key=lambda c: (c.energy, c.step))
+    return pool
+
+
+def test_deduplication_skips_symmetry_check_for_repeated_ordering_keys(oxi_decorated_parent, monkeypatch):
+    """Regression test for slow deduplication: candidates whose ordering key
+    was already seen are duplicates without a StructureMatcher comparison."""
+    import disorderly.sampling as sampling
+    from disorderly.energy import disordered_ewald_energy
+    from disorderly.ordering import ordering_key
+
+    calls = []
+
+    def counting_equivalent(s1, s2, **kwargs):
+        calls.append((ordering_key(oxi_decorated_parent, s1), ordering_key(oxi_decorated_parent, s2)))
+        return symmetrically_equivalent(s1, s2, **kwargs)
+
+    monkeypatch.setattr(sampling, "symmetrically_equivalent", counting_equivalent)
+    # 4 sites with 2 Na + 2 K have only 6 orderings, so 100 attempts repeat
+    # each ordering many times.
+    results = random_energy_sampling(
+        oxi_decorated_parent,
+        energy_evaluator=disordered_ewald_energy,
+        n_attempts=100,
+        n_return=6,
+        seed=0,
+        candidate_pool_size=100,
+        verbose=False,
+    )
+
+    assert results
+    assert all(key1 != key2 for key1, key2 in calls)
+    # Each of the at most 6 distinct orderings is compared against at most
+    # the 6 kept ones, however often it repeats in the pool.
+    assert len(calls) <= 6 * 6
+
+
+def test_deduplication_by_ordering_key_matches_symmetry_only_result(oxi_decorated_parent):
+    from disorderly.results import SavedConfiguration
+    from disorderly.sampling import _deduplicate
+
+    pool = _sampled_pool(oxi_decorated_parent, n=60, seed=3)
+    keyless = [
+        SavedConfiguration(step=c.step, energy=c.energy, structure=c.structure, ordering_key=None) for c in pool
+    ]
+    for n_return in (1, 3, 6):
+        with_keys = _deduplicate(pool, n_return, {})
+        without_keys = _deduplicate(keyless, n_return, {})
+        assert [c.step for c in with_keys] == [c.step for c in without_keys]
