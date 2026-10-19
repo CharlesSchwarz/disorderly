@@ -1,4 +1,4 @@
-"""Thin command-line entry points wrapping :mod:`disorder_mc` workflows.
+"""Thin command-line entry points wrapping :mod:`disorderly` workflows.
 
 See ``scripts/run_monte_carlo.py`` and ``scripts/run_random_sampling.py`` for
 direct-execution wrappers, and the ``run-monte-carlo`` / ``run-random-sampling``

@@ -3,11 +3,11 @@
 Contains the generic move primitives (:func:`move_ion`, :func:`swap_ion`),
 candidate-generation (:func:`propose_next_configuration`), and the Metropolis
 simulation loop (:func:`run_monte_carlo`). All problem-specific behavior is
-supplied via a :class:`disorder_mc.settings.MonteCarloPolicy` -- this module
+supplied via a :class:`disorderly.settings.MonteCarloPolicy` -- this module
 does not hard-code system-specific ordering rules.
 
-May depend on :mod:`disorder_mc.structures`, :mod:`disorder_mc.symmetry`,
-and :mod:`disorder_mc.energy`; depends on :mod:`disorder_mc.settings` for
+May depend on :mod:`disorderly.structures`, :mod:`disorderly.symmetry`,
+and :mod:`disorderly.energy`; depends on :mod:`disorderly.settings` for
 the policy interface (not the reverse, to avoid a circular import).
 """
 
@@ -21,8 +21,8 @@ import warnings
 import numpy as np
 from pymatgen.core import Structure
 
-from disorder_mc.results import MonteCarloCheckpoint, MonteCarloStep, MonteCarloTrajectory, SavedConfiguration
-from disorder_mc.settings import DetailedBalanceWarning, MonteCarloPolicy, MoveProposal
+from disorderly.results import MonteCarloCheckpoint, MonteCarloStep, MonteCarloTrajectory, SavedConfiguration
+from disorderly.settings import DetailedBalanceWarning, MonteCarloPolicy, MoveProposal
 
 __all__ = [
     "KB_EV_PER_K",
@@ -311,14 +311,14 @@ def run_monte_carlo(
     ``num_structures_to_save`` lowest-energy saved configurations, so that
     promising but-rejected configurations are not lost.
 
-    At ``temperature > 0`` a :class:`~disorder_mc.settings.DetailedBalanceWarning`
+    At ``temperature > 0`` a :class:`~disorderly.settings.DetailedBalanceWarning`
     is emitted if ``policy.detailed_balance`` is not ``True``, and (with
     ``disallowed_moves="retry"``) the first time a proposal is redrawn.
 
     Args:
         initial_configuration: Starting ordered configuration. Not mutated.
         policy: Move selection / validation / property evaluation policy
-            (see :mod:`disorder_mc.settings`).
+            (see :mod:`disorderly.settings`).
         temperature: Simulation temperature in Kelvin. ``0`` (or negative)
             performs greedy (zero-temperature) descent: candidates are
             accepted only if they do not raise the energy.
@@ -341,9 +341,9 @@ def run_monte_carlo(
         move_appliers: Passed to :func:`propose_next_configuration`.
         on_step: Optional ``on_step(step, checkpoint)`` called after every
             Monte Carlo step (not the initial step 0) with that step's
-            record and a :class:`~disorder_mc.results.MonteCarloCheckpoint`
+            record and a :class:`~disorderly.results.MonteCarloCheckpoint`
             of the state after it. Use it to stream steps to disk and to
-            save checkpoints (e.g. with :func:`disorder_mc.io.save_checkpoint`)
+            save checkpoints (e.g. with :func:`disorderly.io.save_checkpoint`)
             so a long run can be continued with :func:`resume_monte_carlo`.
         disallowed_moves: What to do when the policy proposes no move or
             ``policy.is_move_allowed`` rejects its proposal.
@@ -358,7 +358,7 @@ def run_monte_carlo(
             configuration.
 
     Returns:
-        The completed :class:`~disorder_mc.results.MonteCarloTrajectory`.
+        The completed :class:`~disorderly.results.MonteCarloTrajectory`.
     """
     _check_disallowed_moves(disallowed_moves)
     rng = np.random.default_rng(seed)
@@ -416,7 +416,7 @@ def resume_monte_carlo(
         checkpoint: State after the last completed step, as passed to an
             ``on_step`` callback of :func:`run_monte_carlo` or a previous
             :func:`resume_monte_carlo` (and possibly saved/loaded with
-            :func:`disorder_mc.io.save_checkpoint`/``load_checkpoint``).
+            :func:`disorderly.io.save_checkpoint`/``load_checkpoint``).
         num_steps: Total number of steps of the whole run, *including* the
             ``checkpoint.step`` steps already done: the run stops after
             step ``num_steps``. Steps are numbered continuing from
@@ -428,7 +428,7 @@ def resume_monte_carlo(
             call, not from the start of the original run.
 
     Returns:
-        A :class:`~disorder_mc.results.MonteCarloTrajectory` of this
+        A :class:`~disorderly.results.MonteCarloTrajectory` of this
         segment of the run. Its first step (``steps[0]``, ``move=None``)
         records the checkpointed state at step ``checkpoint.step``, like
         step 0 of a fresh run; ``saved_configurations`` covers the whole run.
@@ -480,7 +480,7 @@ def _warn_if_policy_breaks_detailed_balance(policy: MonteCarloPolicy, temperatur
             "(MonteCarloPolicy.detailed_balance is None). If a move and its reverse are not proposed "
             "with equal probability (or corrected by MoveProposal.log_proposal_ratio), averages over "
             "the trajectory are biased. Check the policy with "
-            "disorder_mc.diagnostics.check_proposal_symmetry and set detailed_balance=True or False."
+            "disorderly.diagnostics.check_proposal_symmetry and set detailed_balance=True or False."
         )
     warnings.warn(message, DetailedBalanceWarning, stacklevel=4)
 

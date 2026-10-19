@@ -10,7 +10,7 @@ below to control sampling behavior.
 
 from __future__ import annotations
 
-from disorder_mc.mace import MACEEnergyEvaluator
+from disorderly.mace import MACEEnergyEvaluator
 
 
 n_attempts = 10  # Maximum number of random ordered configurations to generate and score.

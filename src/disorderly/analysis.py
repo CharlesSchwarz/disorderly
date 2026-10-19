@@ -20,8 +20,8 @@ from typing import TYPE_CHECKING, Sequence
 
 import numpy as np
 
-from disorder_mc.results import MonteCarloTrajectory
-from disorder_mc.settings import DetailedBalanceWarning
+from disorderly.results import MonteCarloTrajectory
+from disorderly.settings import DetailedBalanceWarning
 
 if TYPE_CHECKING:
     from matplotlib.figure import Figure
@@ -109,7 +109,7 @@ def plot_trajectory(
     ``acceptance_rate`` is true, then each property in ``properties``, for the
     current configuration (see :func:`property_series`).
 
-    Requires matplotlib (``pip install disorder-mc[plot]``).
+    Requires matplotlib (``pip install disorderly[plot]``).
 
     Args:
         trajectory: A Monte Carlo trajectory.
@@ -135,7 +135,7 @@ def plot_trajectory(
         import matplotlib.pyplot as plt
     except ImportError as exc:  # pragma: no cover - depends on environment
         raise ImportError(
-            "plot_trajectory requires matplotlib; install it with `pip install disorder-mc[plot]`."
+            "plot_trajectory requires matplotlib; install it with `pip install disorderly[plot]`."
         ) from exc
 
     names = list(properties)

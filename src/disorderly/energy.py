@@ -1,7 +1,7 @@
 """Electrostatic (Ewald) energy calculations for ordered and disordered
 structures.
 
-May depend on :mod:`disorder_mc.structures` but not on Monte Carlo
+May depend on :mod:`disorderly.structures` but not on Monte Carlo
 functionality.
 """
 

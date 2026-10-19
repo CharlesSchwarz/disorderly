@@ -6,8 +6,8 @@ import pytest
 from pymatgen.core import Lattice, Structure
 from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
 
-from disorder_mc.structures import count_configurations
-from disorder_mc.symmetry import (
+from disorderly.structures import count_configurations
+from disorderly.symmetry import (
     configuration_degeneracy,
     count_distinct_configurations,
     describe_wyckoff_sites,

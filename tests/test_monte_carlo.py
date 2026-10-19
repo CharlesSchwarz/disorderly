@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.monte_carlo import (
+from disorderly.monte_carlo import (
     KB_EV_PER_K,
     _metropolis_accept,
     move_ion,
@@ -13,9 +13,9 @@ from disorder_mc.monte_carlo import (
     run_monte_carlo,
     swap_ion,
 )
-from disorder_mc.io import load_checkpoint, save_checkpoint
-from disorder_mc.results import MonteCarloStep, MonteCarloTrajectory
-from disorder_mc.settings import (
+from disorderly.io import load_checkpoint, save_checkpoint
+from disorderly.results import MonteCarloStep, MonteCarloTrajectory
+from disorderly.settings import (
     DetailedBalanceWarning,
     MonteCarloPolicy,
     MoveProposal,

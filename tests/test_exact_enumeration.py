@@ -9,7 +9,7 @@ import numpy as np
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc import (
+from disorderly import (
     KB_EV_PER_K,
     configuration_degeneracy,
     disordered_ewald_energy,

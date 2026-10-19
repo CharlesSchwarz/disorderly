@@ -7,7 +7,7 @@ every site half Cu, half Zn) and two starting structures in
 - ``ordered.cif`` -- perfect B2 (Cu on the corners, Zn on the body centres),
   for heating runs;
 - ``random_seed<seed>.cif`` -- a random arrangement from
-  :func:`disorder_mc.random_ordered_configuration`, for cooling runs.
+  :func:`disorderly.random_ordered_configuration`, for cooling runs.
 
 Above T_c both should end disordered and below T_c both ordered. Then prints
 the ``run-monte-carlo`` commands (the energy model is in
@@ -26,7 +26,7 @@ import warnings
 import numpy as np
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc import random_ordered_configuration
+from disorderly import random_ordered_configuration
 
 HERE = Path(__file__).resolve().parent
 # pymatgen writes one CIF row per species on a mixed site, repeating its label.

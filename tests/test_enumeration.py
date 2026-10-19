@@ -4,10 +4,10 @@ import numpy as np
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.enumeration import enumerate_ordered_configurations
-from disorder_mc.ordering import ordering_key, structure_from_ordering_key
-from disorder_mc.structures import count_configurations, disordered_site_groups
-from disorder_mc.symmetry import (
+from disorderly.enumeration import enumerate_ordered_configurations
+from disorderly.ordering import ordering_key, structure_from_ordering_key
+from disorderly.structures import count_configurations, disordered_site_groups
+from disorderly.symmetry import (
     _occupations_on_parent,
     configuration_degeneracy,
     count_distinct_configurations,

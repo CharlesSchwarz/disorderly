@@ -2,9 +2,9 @@
 of a disordered parent structure, using icet's ``enumerate_structures``.
 
 icet (and its ASE dependency) is optional and imported lazily, so the base
-``disorder_mc`` package remains importable without it.
+``disorderly`` package remains importable without it.
 
-May depend on :mod:`disorder_mc.structures`.
+May depend on :mod:`disorderly.structures`.
 """
 
 from __future__ import annotations
@@ -13,14 +13,14 @@ from collections.abc import Iterable, Iterator
 
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.structures import DisorderedSiteGroup, _is_whole, disordered_site_groups
+from disorderly.structures import DisorderedSiteGroup, _is_whole, disordered_site_groups
 
 __all__ = ["enumerate_ordered_configurations"]
 
 
 def _missing_icet_dependency_error(exc: ModuleNotFoundError) -> ModuleNotFoundError:
     return ModuleNotFoundError(
-        f"Missing optional dependency {exc.name!r}; install disorder-mc with the "
+        f"Missing optional dependency {exc.name!r}; install disorderly with the "
         "icet extra or install icet in this environment."
     )
 
@@ -64,10 +64,10 @@ def enumerate_ordered_configurations(
     Allowed decorations and composition follow the rest of the package:
 
     * every disordered site group of
-      :func:`disorder_mc.structures.disordered_site_groups` (sites sharing
+      :func:`disorderly.structures.disordered_site_groups` (sites sharing
       one species/occupancy signature) holds exactly ``size * n_sites *
       occupancy`` of each species, so composition is fixed per group --
-      the same constraint :func:`disorder_mc.sampling.random_ordered_configuration`
+      the same constraint :func:`disorderly.sampling.random_ordered_configuration`
       and composition-preserving Monte Carlo moves obey;
     * a group whose occupancies sum to less than 1 also holds the matching
       number of vacancies, which are left out of the yielded structures
@@ -76,11 +76,11 @@ def enumerate_ordered_configurations(
 
     Symmetry is that of the disordered parent, with sites sharing a
     signature treated as identical (as in
-    :func:`disorder_mc.symmetry.site_permutations`). For ``sizes=1`` the
+    :func:`disorderly.symmetry.site_permutations`). For ``sizes=1`` the
     configurations are therefore one representative of each orbit counted
-    by :func:`disorder_mc.symmetry.count_distinct_configurations`, and
-    their :func:`~disorder_mc.symmetry.configuration_degeneracy` values sum
-    to :func:`disorder_mc.structures.count_configurations`.
+    by :func:`disorderly.symmetry.count_distinct_configurations`, and
+    their :func:`~disorderly.symmetry.configuration_degeneracy` values sum
+    to :func:`disorderly.structures.count_configurations`.
 
     Supercell sizes: size ``n`` yields configurations in supercells with
     ``n`` times as many sites as ``parent``, across all inequivalent
@@ -91,7 +91,7 @@ def enumerate_ordered_configurations(
     one particular supercell, build it with ``parent.make_supercell(...)``
     and enumerate it with ``sizes=1``. Sizes at which the occupancies are
     not whole numbers of sites (see
-    :func:`disorder_mc.structures.supercell_multiplier`) are skipped.
+    :func:`disorderly.structures.supercell_multiplier`) are skipped.
 
     Enumeration is exhaustive and the number of configurations grows
     combinatorially; check ``count_distinct_configurations(parent)`` first
@@ -105,15 +105,15 @@ def enumerate_ordered_configurations(
             transformed sites onto parent sites, in fractional
             coordinates. Defaults to ``symprec``.
         occupancy_tol: Passed to
-            :func:`disorder_mc.structures.disordered_site_groups`.
+            :func:`disorderly.structures.disordered_site_groups`.
         count_tol: Absolute tolerance (in sites) for treating
             ``size * n_sites * occupancy`` as a whole number.
         niggli_reduce: If true, Niggli-reduce each supercell. The default
             ``False`` keeps the cell ``H @ parent.lattice.matrix`` for
             supercell matrix ``H``, so ``sizes=1`` configurations share
             the parent's lattice and can be passed to
-            :func:`disorder_mc.ordering.ordering_key` and
-            :func:`~disorder_mc.symmetry.configuration_degeneracy`.
+            :func:`disorderly.ordering.ordering_key` and
+            :func:`~disorderly.symmetry.configuration_degeneracy`.
 
     Yields:
         Ordered ``Structure`` objects carrying the parent's species
@@ -137,7 +137,7 @@ def enumerate_ordered_configurations(
     if not counts_by_size:
         raise ValueError(
             f"The parent's occupancies are not whole numbers of sites at any requested size {size_list}; "
-            "see disorder_mc.structures.supercell_multiplier for the smallest size that works."
+            "see disorderly.structures.supercell_multiplier for the smallest size that works."
         )
 
     try:

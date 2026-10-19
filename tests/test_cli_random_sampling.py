@@ -2,7 +2,7 @@ import json
 
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.cli.run_random_sampling import main
+from disorderly.cli.run_random_sampling import main
 
 
 def test_run_random_sampling_cli_uses_settings_file_path(tmp_path):

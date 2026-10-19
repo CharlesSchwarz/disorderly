@@ -7,7 +7,7 @@ every site 3/4 Cu, 1/4 Au) and two starting structures in
 - ``ordered.cif`` -- perfect L1_2 (Au on the corners, Cu on the face
   centres), for heating runs;
 - ``random_seed<seed>.cif`` -- a random arrangement from
-  :func:`disorder_mc.random_ordered_configuration`, for cooling runs.
+  :func:`disorderly.random_ordered_configuration`, for cooling runs.
 
 Then prints the ``run-monte-carlo`` commands (MACE settings are in
 ``monte_carlo_settings.py``).
@@ -25,7 +25,7 @@ import warnings
 import numpy as np
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc import random_ordered_configuration
+from disorderly import random_ordered_configuration
 
 HERE = Path(__file__).resolve().parent
 # pymatgen writes one CIF row per species on a mixed site, repeating its label.

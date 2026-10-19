@@ -7,8 +7,8 @@ move's ``log_proposal_ratio`` (equal probabilities when it is ``0``). The
 engine cannot check this from the policy's code, so it relies on the
 policy's ``detailed_balance`` declaration; this is how to verify one.
 
-Depends on :mod:`disorder_mc.monte_carlo` (to build candidates exactly as the
-engine does) and :mod:`disorder_mc.settings`.
+Depends on :mod:`disorderly.monte_carlo` (to build candidates exactly as the
+engine does) and :mod:`disorderly.settings`.
 """
 
 from __future__ import annotations
@@ -20,8 +20,8 @@ from typing import Callable, Literal
 import numpy as np
 from pymatgen.core import Structure
 
-from disorder_mc.monte_carlo import DEFAULT_MOVE_APPLIERS, _check_disallowed_moves, _propose_once
-from disorder_mc.settings import MonteCarloPolicy, MoveProposal
+from disorderly.monte_carlo import DEFAULT_MOVE_APPLIERS, _check_disallowed_moves, _propose_once
+from disorderly.settings import MonteCarloPolicy, MoveProposal
 
 __all__ = ["ProposalPairCheck", "ProposalSymmetryReport", "check_proposal_symmetry"]
 
@@ -157,7 +157,7 @@ def check_proposal_symmetry(
         z_threshold: ``|z_score|`` above which a pair is a violation.
         seed: Random seed.
         disallowed_moves: The engine mode to test, as for
-            :func:`disorder_mc.monte_carlo.run_monte_carlo`. With
+            :func:`disorderly.monte_carlo.run_monte_carlo`. With
             ``"retry"``, redrawing disallowed proposals is part of the
             tested proposal distribution.
         move_appliers: Extra move appliers, as for ``run_monte_carlo``.

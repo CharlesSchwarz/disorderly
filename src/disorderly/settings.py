@@ -1,6 +1,6 @@
 """User-configurable Monte Carlo behavior.
 
-The Monte Carlo engine in :mod:`disorder_mc.monte_carlo` calls into a
+The Monte Carlo engine in :mod:`disorderly.monte_carlo` calls into a
 :class:`MonteCarloPolicy` for all problem-specific behavior -- which moves
 to propose, whether a proposed move is allowed, and which properties (and
 in particular, which scalar energy) to evaluate for a candidate
@@ -8,7 +8,7 @@ configuration. This module defines that policy interface, together with a
 simple, generically applicable default policy (canonical-ensemble site
 swaps) that users can use directly or take as a template for their own.
 
-This module intentionally does not depend on :mod:`disorder_mc.monte_carlo`,
+This module intentionally does not depend on :mod:`disorderly.monte_carlo`,
 so that the engine can depend on the policy interface without a circular
 import.
 """
@@ -21,7 +21,7 @@ from typing import Any, Callable, Protocol, Sequence
 import numpy as np
 from pymatgen.core import Structure
 
-from disorder_mc.energy import disordered_ewald_energy
+from disorderly.energy import disordered_ewald_energy
 
 __all__ = [
     "DetailedBalanceWarning",
@@ -56,7 +56,7 @@ class MoveProposal:
     Attributes:
         move_type: A short label for the kind of move (e.g. ``"swap"`` or
             ``"move"``). Not interpreted by the engine itself; it is passed
-            through to :func:`disorder_mc.monte_carlo.propose_next_configuration`,
+            through to :func:`disorderly.monte_carlo.propose_next_configuration`,
             which dispatches on it to decide how to build the candidate
             structure (via ``swap_ion``/``move_ion``), and is recorded in
             the trajectory for analysis.
@@ -145,7 +145,7 @@ class MonteCarloPolicy:
             emits a :class:`DetailedBalanceWarning` at the start of a
             finite-temperature run if this is ``False`` (a policy
             deliberately breaking detailed balance) or ``None`` (not
-            declared). :func:`disorder_mc.diagnostics.check_proposal_symmetry`
+            declared). :func:`disorderly.diagnostics.check_proposal_symmetry`
             tests a policy's proposals empirically. The built-in policies
             declare ``True``.
     """
@@ -232,7 +232,7 @@ def default_evaluate_props(configuration: Structure, context: dict[str, Any]) ->
     """Evaluate the disordered Ewald energy of ``configuration``.
 
     Returns a dict with a single ``"energy"`` key, in eV (see
-    :func:`disorder_mc.energy.disordered_ewald_energy`). ``configuration``
+    :func:`disorderly.energy.disordered_ewald_energy`). ``configuration``
     must carry explicit oxidation states.
     """
     return {"energy": disordered_ewald_energy(configuration)}
@@ -266,7 +266,7 @@ def sublattice_site_indices(
 
     Sites are matched to sublattice positions by (periodic) distance, not by
     index, because ordered configurations need not list their sites in the
-    parent's order (e.g. :func:`disorder_mc.sampling.random_ordered_configuration`
+    parent's order (e.g. :func:`disorderly.sampling.random_ordered_configuration`
     lists already-ordered sites first). Sites farther than ``tol`` from every
     sublattice position belong to no sublattice; sublattice positions with
     no matching site (vacancies) are simply absent from the result.
@@ -360,7 +360,7 @@ def sublattice_swap_policy(
             parent sites (e.g. all cation sites of a spinel, to allow
             inversion). Defaults to one group per distinct species/occupancy
             signature among ``parent``'s disordered sites -- the same pools
-            used by :func:`disorder_mc.sampling.random_ordered_configuration`.
+            used by :func:`disorderly.sampling.random_ordered_configuration`.
         evaluate_props: Property evaluator; defaults to
             :func:`default_evaluate_props` (disordered Ewald energy).
         context: Extra user context. The sublattice positions are added

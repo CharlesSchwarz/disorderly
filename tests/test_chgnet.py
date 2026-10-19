@@ -11,10 +11,10 @@ import types
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.chgnet import CHGNetEnergyEvaluator, chgnet_policy, get_energy_evaluator
-from disorder_mc.io import load_energy_evaluator
-from disorder_mc.monte_carlo import run_monte_carlo
-from disorder_mc.settings import default_choose_potential_move, default_is_move_allowed
+from disorderly.chgnet import CHGNetEnergyEvaluator, chgnet_policy, get_energy_evaluator
+from disorderly.io import load_energy_evaluator
+from disorderly.monte_carlo import run_monte_carlo
+from disorderly.settings import default_choose_potential_move, default_is_move_allowed
 
 
 @pytest.fixture
@@ -124,7 +124,7 @@ def test_chgnet_policy_can_drive_monte_carlo(monkeypatch):
 
 
 def test_module_works_with_energy_evaluator_loader():
-    evaluator = load_energy_evaluator("disorder_mc.chgnet", device="cuda")
+    evaluator = load_energy_evaluator("disorderly.chgnet", device="cuda")
     assert isinstance(evaluator, CHGNetEnergyEvaluator)
     assert evaluator.device == "cuda"
 

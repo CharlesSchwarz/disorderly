@@ -4,14 +4,14 @@ import warnings
 import numpy as np
 import pytest
 
-from disorder_mc.analysis import (
+from disorderly.analysis import (
     plot_trajectory,
     property_series,
     rolling_acceptance_rate,
     thermal_average,
 )
-from disorder_mc.results import MonteCarloStep, MonteCarloTrajectory
-from disorder_mc.settings import DetailedBalanceWarning
+from disorderly.results import MonteCarloStep, MonteCarloTrajectory
+from disorderly.settings import DetailedBalanceWarning
 
 
 def _trajectory(records, temperature=1000.0, detailed_balance=True) -> MonteCarloTrajectory:
@@ -186,7 +186,7 @@ def test_plot_trajectory_invalid_inputs(simple, plt):
 def test_plot_trajectory_from_real_run(plt):
     from pymatgen.core import Lattice, Structure
 
-    from disorder_mc import default_policy, run_monte_carlo
+    from disorderly import default_policy, run_monte_carlo
 
     structure = Structure(
         Lattice.cubic(5.64),

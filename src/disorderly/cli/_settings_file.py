@@ -23,7 +23,7 @@ def load_settings_file(settings_path: str | Path) -> ModuleType:
     if settings_path.suffix != ".py":
         raise ValueError(f"Settings file must be a Python file ending in .py: {settings_path}")
 
-    module_name = f"_disorder_mc_cli_settings_{abs(hash(settings_path))}"
+    module_name = f"_disorderly_cli_settings_{abs(hash(settings_path))}"
     module = ModuleType(module_name)
     module.__file__ = str(settings_path)
     code = compile(settings_path.read_bytes(), str(settings_path), "exec", dont_inherit=True)

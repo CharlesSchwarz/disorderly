@@ -2,8 +2,8 @@ import numpy as np
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.ordering import ordering_key, structure_from_ordering_key
-from disorder_mc.sampling import random_ordered_configuration
+from disorderly.ordering import ordering_key, structure_from_ordering_key
+from disorderly.sampling import random_ordered_configuration
 
 
 def _species_by_frac(structure):

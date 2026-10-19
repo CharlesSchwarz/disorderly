@@ -1,9 +1,9 @@
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.mlip import ASECalculatorEvaluator, mlip_policy
-from disorder_mc.monte_carlo import run_monte_carlo
-from disorder_mc.settings import default_choose_potential_move, default_is_move_allowed
+from disorderly.mlip import ASECalculatorEvaluator, mlip_policy
+from disorderly.monte_carlo import run_monte_carlo
+from disorderly.settings import default_choose_potential_move, default_is_move_allowed
 
 
 def _strained_copper() -> Structure:

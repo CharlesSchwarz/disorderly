@@ -4,9 +4,9 @@ import numpy as np
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.sampling import random_energy_sampling, random_ewald_sampling, random_ordered_configuration
-from disorder_mc.symmetry import symmetrically_equivalent
-from disorder_mc.ordering import structure_from_ordering_key
+from disorderly.sampling import random_energy_sampling, random_ewald_sampling, random_ordered_configuration
+from disorderly.symmetry import symmetrically_equivalent
+from disorderly.ordering import structure_from_ordering_key
 
 
 @pytest.fixture
@@ -250,7 +250,7 @@ def test_random_energy_sampling_parallel_reports_completed_futures(oxi_decorated
     def reversed_as_completed(futures):
         return reversed(list(futures))
 
-    monkeypatch.setattr("disorder_mc.sampling.as_completed", reversed_as_completed)
+    monkeypatch.setattr("disorderly.sampling.as_completed", reversed_as_completed)
 
     def evaluator(structure):
         return 0.0
@@ -279,7 +279,7 @@ def test_random_energy_sampling_time_limit_returns_best_so_far(oxi_decorated_par
         return float(100 - calls)
 
     times = iter([0.0, 0.5, 2.0])
-    monkeypatch.setattr("disorder_mc.sampling.time.perf_counter", lambda: next(times))
+    monkeypatch.setattr("disorderly.sampling.time.perf_counter", lambda: next(times))
 
     results = random_energy_sampling(
         oxi_decorated_parent,
@@ -317,7 +317,7 @@ def test_random_energy_sampling_rejects_bad_n_jobs(oxi_decorated_parent):
 
 
 def test_random_ordered_configuration_default_rng_is_shared_seed_zero(lattice, monkeypatch):
-    import disorder_mc.sampling as sampling
+    import disorderly.sampling as sampling
 
     parent = Structure(
         lattice,

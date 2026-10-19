@@ -1,6 +1,6 @@
 """Symmetry analysis and comparison of ordered and disordered structures.
 
-May depend on :mod:`disorder_mc.structures` but not on energy or Monte Carlo
+May depend on :mod:`disorderly.structures` but not on energy or Monte Carlo
 functionality.
 """
 
@@ -13,7 +13,7 @@ from pymatgen.analysis.structure_matcher import StructureMatcher
 from pymatgen.core import PeriodicSite, Structure
 from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
 
-from disorder_mc.structures import DisorderedSiteGroup, disordered_site_groups
+from disorderly.structures import DisorderedSiteGroup, disordered_site_groups
 
 __all__ = [
     "get_spacegroup",
@@ -207,8 +207,8 @@ def describe_wyckoff_sites(
     occupancies on its sites, the number of its sites in the cell, whether
     it is disordered, and, for a disordered orbit, the whole numbers of
     each species and vacancies that every ordered configuration places on
-    it (the counts of :func:`disorder_mc.structures.disordered_site_groups`,
-    as used by :func:`disorder_mc.sampling.random_ordered_configuration`).
+    it (the counts of :func:`disorderly.structures.disordered_site_groups`,
+    as used by :func:`disorderly.sampling.random_ordered_configuration`).
 
     Distinct orbits that share a Wyckoff label get separate rows. Ordered
     configurations pool all disordered sites with the same species and
@@ -220,7 +220,7 @@ def describe_wyckoff_sites(
         structure: Structure to describe (ordered or disordered).
         symprec, angle_tolerance: Passed to :func:`get_wyckoff_labels`.
         occupancy_tol: Passed to
-            :func:`disorder_mc.structures.disordered_site_groups`.
+            :func:`disorderly.structures.disordered_site_groups`.
 
     Returns:
         The table as a multi-line string, e.g. for ``print``.
@@ -526,7 +526,7 @@ def count_distinct_configurations(
 
     Counts the orbits of the parent's site permutations (see
     :func:`site_permutations`) acting on all ordered configurations with
-    the whole-site counts of :func:`disorder_mc.structures.disordered_site_groups`,
+    the whole-site counts of :func:`disorderly.structures.disordered_site_groups`,
     using Burnside's lemma::
 
         n_distinct = (1 / |G|) * sum over g in G of |Fix(g)|
@@ -536,7 +536,7 @@ def count_distinct_configurations(
     configurations. The orbits are the classes whose sizes
     :func:`configuration_degeneracy` returns, so the degeneracies of all
     distinct configurations sum to
-    :func:`disorder_mc.structures.count_configurations`. When most
+    :func:`disorderly.structures.count_configurations`. When most
     configurations have no symmetry, the result is close to
     ``count_configurations(parent) / |G|``.
 
@@ -549,7 +549,7 @@ def count_distinct_configurations(
             Ignored if ``perms`` is given.
         perms: Precomputed ``site_permutations(parent, symprec=symprec)``.
         occupancy_tol: Passed to
-            :func:`disorder_mc.structures.disordered_site_groups`.
+            :func:`disorderly.structures.disordered_site_groups`.
 
     Returns:
         The exact number of symmetrically distinct configurations.

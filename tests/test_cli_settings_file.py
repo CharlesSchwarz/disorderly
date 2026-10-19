@@ -1,7 +1,7 @@
 import os
 import sys
 
-from disorder_mc.cli._settings_file import load_settings_file
+from disorderly.cli._settings_file import load_settings_file
 
 
 def test_load_settings_file_sees_same_size_edit_within_one_second(tmp_path, monkeypatch):

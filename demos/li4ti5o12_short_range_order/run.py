@@ -2,8 +2,8 @@
 
 In spinel Li4Ti5O12 the 16d (octahedral) sites are shared by Li+ (1/6) and
 Ti4+ (5/6). This demo runs Metropolis Monte Carlo over Li/Ti arrangements on
-those sites -- with :func:`disorder_mc.sublattice_swap_policy`, so 8a Li and
-O never move -- scored by Ewald energy via :class:`disorder_mc.PrecomputedEwald`,
+those sites -- with :func:`disorderly.sublattice_swap_policy`, so 8a Li and
+O never move -- scored by Ewald energy via :class:`disorderly.PrecomputedEwald`,
 and records the Warren-Cowley short-range-order parameter for Li-Li pairs on
 the first few 16d neighbor shells as a function of temperature.
 
@@ -41,7 +41,7 @@ import time
 import numpy as np
 from pymatgen.core import Structure
 
-from disorder_mc import (
+from disorderly import (
     KB_EV_PER_K,
     PrecomputedEwald,
     ordering_key,
@@ -224,7 +224,7 @@ def run_mace(args: argparse.Namespace) -> None:
     import torch
     from scipy.stats import spearmanr
 
-    from disorder_mc.mace import MACEEnergyEvaluator
+    from disorderly.mace import MACEEnergyEvaluator
 
     summary_path = RESULTS / "sro_summary.json"
     if not summary_path.exists():

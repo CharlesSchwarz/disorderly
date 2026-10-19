@@ -190,7 +190,7 @@ class DisorderedSiteGroup:
     species and occupancies, as returned by :func:`disordered_site_groups`.
 
     Vacancies are keyed by ``None`` in ``ideal_counts`` and ``counts`` (the
-    same convention as :mod:`disorder_mc.ordering`), and only appear when
+    same convention as :mod:`disorderly.ordering`), and only appear when
     the occupancies sum to less than 1.
 
     Attributes:
@@ -201,7 +201,7 @@ class DisorderedSiteGroup:
             vacancy). Not necessarily whole numbers.
         counts: Whole numbers of each species (and vacancies) an ordered
             configuration of the structure places on these sites -- exactly
-            what :func:`disorder_mc.sampling.random_ordered_configuration`
+            what :func:`disorderly.sampling.random_ordered_configuration`
             uses.
         commensurate: Whether every ideal count is a whole number, i.e.
             whether ``counts`` reproduces the occupancies exactly.
@@ -392,7 +392,7 @@ def count_configurations(structure: Structure, occupancy_tol: float = 1e-2) -> i
     counts (see :func:`disordered_site_groups`), vacancies included, is the
     multinomial coefficient ``n! / (n_1! n_2! ...)``; the total is the
     product over groups. Configurations related by symmetry are counted
-    separately -- see :func:`disorder_mc.symmetry.count_distinct_configurations`.
+    separately -- see :func:`disorderly.symmetry.count_distinct_configurations`.
 
     Args:
         structure: Disordered structure.

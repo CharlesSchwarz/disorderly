@@ -1,7 +1,7 @@
 """Saving and loading structures, trajectories, saved configurations, and
 run metadata.
 
-May depend on :mod:`disorder_mc.results` and :mod:`disorder_mc.settings`.
+May depend on :mod:`disorderly.results` and :mod:`disorderly.settings`.
 """
 
 from __future__ import annotations
@@ -15,9 +15,9 @@ from typing import Any, Sequence
 from monty.json import MontyEncoder
 from pymatgen.core import Structure
 
-from disorder_mc.ordering import structure_from_ordering_key
-from disorder_mc.results import MonteCarloCheckpoint, MonteCarloTrajectory, SavedConfiguration
-from disorder_mc.settings import MonteCarloPolicy
+from disorderly.ordering import structure_from_ordering_key
+from disorderly.results import MonteCarloCheckpoint, MonteCarloTrajectory, SavedConfiguration
+from disorderly.settings import MonteCarloPolicy
 
 __all__ = [
     "save_structures",
@@ -77,7 +77,7 @@ def load_json(path: str | Path) -> Any:
 
     Deliberately does *not* use :class:`monty.json.MontyDecoder`: this
     package's own ``as_dict``/``from_dict`` methods (e.g.
-    :meth:`~disorder_mc.results.MonteCarloTrajectory.from_dict`) already
+    :meth:`~disorderly.results.MonteCarloTrajectory.from_dict`) already
     know how to reconstruct their nested ``Structure`` objects explicitly,
     and auto-decoding here would pre-convert those nested dicts into
     ``Structure`` objects before ``from_dict`` gets to see them.
@@ -122,7 +122,7 @@ def save_configurations(
     include_structures: bool = False,
 ) -> Path:
     """Save a list of configurations (e.g. from
-    :func:`disorder_mc.sampling.random_ewald_sampling`) to a JSON file.
+    :func:`disorderly.sampling.random_ewald_sampling`) to a JSON file.
 
     By default the JSON stores the reversible ``ordering_key`` but does not
     embed full structure site data. Pass ``include_structures=True`` when a
@@ -141,7 +141,7 @@ def load_configurations(
     :func:`save_configurations`.
 
     Compact configuration JSON files do not embed full structures. To load
-    those records as :class:`~disorder_mc.results.SavedConfiguration` objects,
+    those records as :class:`~disorderly.results.SavedConfiguration` objects,
     pass the same parent structure used to generate the ``ordering_key`` values.
     Older/self-contained JSON files containing ``"structure"`` still load
     without a parent.
@@ -195,7 +195,7 @@ def load_energy_evaluator(module_path: str, factory: str = "get_energy_evaluator
 
 
 def load_policy(module_path: str, factory: str = "get_policy", **kwargs: Any) -> MonteCarloPolicy:
-    """Load a :class:`~disorder_mc.settings.MonteCarloPolicy` from a Python
+    """Load a :class:`~disorderly.settings.MonteCarloPolicy` from a Python
     module (a simulation's "settings file").
 
     A ``MonteCarloPolicy`` is fundamentally a bundle of Python callables

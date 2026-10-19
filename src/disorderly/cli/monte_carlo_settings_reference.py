@@ -10,7 +10,7 @@ temperature, and this settings path. Edit the values below to control the run.
 
 from __future__ import annotations
 
-from disorder_mc.mace import mace_policy
+from disorderly.mace import mace_policy
 
 
 num_steps = 50000  # Number of Monte Carlo moves to propose.

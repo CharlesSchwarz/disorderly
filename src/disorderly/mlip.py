@@ -4,10 +4,10 @@
 evaluation that do not depend on the specific model: conversion to ASE
 ``Atoms``, optional relaxation, per-thread calculators for threaded
 sampling, and Monte-Carlo-compatible property dicts. Model-specific modules
-(:mod:`disorder_mc.mace`, :mod:`disorder_mc.chgnet`) only supply the
+(:mod:`disorderly.mace`, :mod:`disorderly.chgnet`) only supply the
 calculator.
 
-ASE and any model package are imported lazily, so the base ``disorder_mc``
+ASE and any model package are imported lazily, so the base ``disorderly``
 package stays importable without them.
 """
 
@@ -20,8 +20,8 @@ import warnings
 
 from pymatgen.core import Structure
 
-from disorder_mc._warning_filters import should_suppress_logm_warning, warning_filter_scope
-from disorder_mc.settings import (
+from disorderly._warning_filters import should_suppress_logm_warning, warning_filter_scope
+from disorderly.settings import (
     MonteCarloPolicy,
     default_choose_potential_move,
     default_is_move_allowed,
@@ -180,7 +180,7 @@ def mlip_policy(evaluator: ASECalculatorEvaluator, context: dict[str, Any] | Non
     """Create a swap-based Monte Carlo policy scored by ``evaluator``.
 
     The move-selection and validation behavior matches
-    :func:`disorder_mc.settings.default_policy`; only the energy evaluator is
+    :func:`disorderly.settings.default_policy`; only the energy evaluator is
     replaced. ``context["energy_model"]`` defaults to ``evaluator.label``.
     """
     policy_context = dict(context or {})

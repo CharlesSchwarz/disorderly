@@ -2,14 +2,12 @@
   <img src="docs/images/logo.png" alt="Disorderly logo" width="480">
 </p>
 
-# Disorderly
 
 Disorderly takes a disordered crystal structure and finds its low-energy ordered configurations. It can sample
 or exhaustively enumerate the symmetrically distinct orderings, or explore
 them at finite temperature with Metropolis Monte Carlo. Each configuration is
 scored directly by the energy model you choose: Ewald electrostatics, a
-machine-learned interatomic potential such as MACE or CHGNet (optionally after
-relaxation), any other ASE calculator, or your own function.
+machine-learned interatomic potential such as MACE or CHGNet, any other ASE calculator, or your own function.
 
 Built on [pymatgen](https://pymatgen.org/). The API is designed to be easy to read and to call from
 scripts and LLM-based workflows. Features:
@@ -27,7 +25,6 @@ scripts and LLM-based workflows. Features:
 
 ## Installation
 
-Disorderly is installed as `disorder-mc` and imported as `disorder_mc`.
 Install directly from GitHub:
 
 ```bash
@@ -92,8 +89,8 @@ A Monte Carlo settings file defines its move policy either as
 `policy = MonteCarloPolicy(...)` or with a `get_policy(...)` function; the
 command adds the parent structure, initial structure, and temperature to the
 policy's `context`. Commented reference settings files, listing every option,
-are `src/disorder_mc/cli/random_sampling_settings_reference.py` and
-`src/disorder_mc/cli/monte_carlo_settings_reference.py`: copy one and edit it.
+are `src/disorderly/cli/random_sampling_settings_reference.py` and
+`src/disorderly/cli/monte_carlo_settings_reference.py`: copy one and edit it.
 Both use MACE by default; set `model_path` to your model file or swap in
 another energy.
 
@@ -127,34 +124,34 @@ the tolerances and units used throughout.
 
 ## Package layout
 
-- `disorder_mc.structures` -- disordered-structure inspection and
+- `disorderly.structures` -- disordered-structure inspection and
   manipulation: disordered site groups and their whole-atom counts,
   supercell multipliers, configuration counts, and occupancy editing
   (`replace_species_and_occupancy`, `set_site_occupancies`).
-- `disorder_mc.symmetry` -- space groups, Wyckoff sites, labels, and
+- `disorderly.symmetry` -- space groups, Wyckoff sites, labels, and
   per-site summary tables (`describe_wyckoff_sites`),
   symmetric equivalence, configuration degeneracy, and counts of
   symmetrically distinct configurations.
-- `disorder_mc.energy` -- disordered-structure Ewald energies.
-- `disorder_mc.sampling` -- random ordered-configuration generation and
+- `disorderly.energy` -- disordered-structure Ewald energies.
+- `disorderly.sampling` -- random ordered-configuration generation and
   energy-ranked sampling.
-- `disorder_mc.ordering` -- compact, reversible ordering keys for
+- `disorderly.ordering` -- compact, reversible ordering keys for
   configurations relative to their parent.
-- `disorder_mc.enumeration` -- exhaustive enumeration of symmetrically
+- `disorderly.enumeration` -- exhaustive enumeration of symmetrically
   distinct ordered configurations (optional, requires the `icet` extra).
-- `disorder_mc.mlip` -- generic ASE-calculator energy evaluator (optional
+- `disorderly.mlip` -- generic ASE-calculator energy evaluator (optional
   relaxation, thread-safe) shared by the machine-learned potential backends;
   wrap any ASE calculator with `ASECalculatorEvaluator(calculator_factory=...)`.
-- `disorder_mc.mace` -- optional MACE energy evaluators and MC policies.
-- `disorder_mc.chgnet` -- optional CHGNet energy evaluators and MC policies
+- `disorderly.mace` -- optional MACE energy evaluators and MC policies.
+- `disorderly.chgnet` -- optional CHGNet energy evaluators and MC policies
   (pretrained model by default, or a fine-tuned `model_path`).
-- `disorder_mc.settings` -- the configurable Monte Carlo policy interface.
-- `disorder_mc.monte_carlo` -- move primitives and the Metropolis engine.
-- `disorder_mc.diagnostics` -- checks that a policy's move proposals satisfy
+- `disorderly.settings` -- the configurable Monte Carlo policy interface.
+- `disorderly.monte_carlo` -- move primitives and the Metropolis engine.
+- `disorderly.diagnostics` -- checks that a policy's move proposals satisfy
   detailed balance.
-- `disorder_mc.results` -- trajectory/result dataclasses.
-- `disorder_mc.io` -- saving/loading structures, trajectories, and settings.
-- `disorder_mc.cli` -- thin CLI wrappers (see `scripts/`).
+- `disorderly.results` -- trajectory/result dataclasses.
+- `disorderly.io` -- saving/loading structures, trajectories, and settings.
+- `disorderly.cli` -- thin CLI wrappers (see `scripts/`).
 
 ## Citing
 

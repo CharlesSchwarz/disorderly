@@ -3,7 +3,7 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "disorder-mc"
+name = "disorderly"
 dynamic = ["version"]
 description = "Tools for exploring ordered configurations of disordered crystal structures via symmetry analysis, Ewald energetics, and Monte Carlo ordering, built on pymatgen."
 readme = "README.md"
@@ -70,11 +70,11 @@ Repository = "https://github.com/CharlesSchwarz/disorderly"
 Issues = "https://github.com/CharlesSchwarz/disorderly/issues"
 
 [project.scripts]
-run-monte-carlo = "disorder_mc.cli.run_monte_carlo:main"
-run-random-sampling = "disorder_mc.cli.run_random_sampling:main"
+run-monte-carlo = "disorderly.cli.run_monte_carlo:main"
+run-random-sampling = "disorderly.cli.run_random_sampling:main"
 
 [tool.setuptools.dynamic]
-version = { attr = "disorder_mc.__version__" }
+version = { attr = "disorderly.__version__" }
 
 [tool.setuptools.packages.find]
 where = ["src"]

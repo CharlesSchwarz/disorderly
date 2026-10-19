@@ -1,8 +1,8 @@
 """Random configuration generation and energy-ranked sampling of
 ordered configurations from a disordered parent structure.
 
-May depend on :mod:`disorder_mc.structures`, :mod:`disorder_mc.symmetry`,
-and :mod:`disorder_mc.energy`.
+May depend on :mod:`disorderly.structures`, :mod:`disorderly.symmetry`,
+and :mod:`disorderly.energy`.
 """
 
 from __future__ import annotations
@@ -15,12 +15,12 @@ from typing import Any, Callable
 import numpy as np
 from pymatgen.core import PeriodicSite, Structure
 
-from disorder_mc._warning_filters import warning_filter_scope
-from disorder_mc.energy import disordered_ewald_energy
-from disorder_mc.ordering import ordering_key
-from disorder_mc.results import SavedConfiguration
-from disorder_mc.structures import disordered_site_groups
-from disorder_mc.symmetry import symmetrically_equivalent
+from disorderly._warning_filters import warning_filter_scope
+from disorderly.energy import disordered_ewald_energy
+from disorderly.ordering import ordering_key
+from disorderly.results import SavedConfiguration
+from disorderly.structures import disordered_site_groups
+from disorderly.symmetry import symmetrically_equivalent
 
 EnergyEvaluation = float | dict[str, Any]
 EnergyEvaluator = Callable[[Structure], EnergyEvaluation]
@@ -49,7 +49,7 @@ def random_ordered_configuration(
     structure has multiple physically distinct disordered sublattices that
     happen to share identical species and occupancies, they are pooled
     together; call this function separately per sublattice (e.g. after
-    splitting with :func:`disorder_mc.structures.replace_species_and_occupancy`) if
+    splitting with :func:`disorderly.structures.replace_species_and_occupancy`) if
     that is not desired.
 
     If a pool's occupancies sum to (approximately) 1, every site in the pool
@@ -58,7 +58,7 @@ def random_ordered_configuration(
     1, site counts are rounded independently and the shortfall is left
     vacant (i.e. those sites are simply absent from the returned structure).
     The pools and counts are those reported by
-    :func:`disorder_mc.structures.disordered_site_groups`.
+    :func:`disorderly.structures.disordered_site_groups`.
 
     Args:
         parent: Disordered parent structure.
@@ -117,9 +117,9 @@ def random_ewald_sampling(
 
     Generate up to ``n_attempts``
     random ordered configurations (:func:`random_ordered_configuration`),
-    score them by :func:`disorder_mc.energy.disordered_ewald_energy`,
+    score them by :func:`disorderly.energy.disordered_ewald_energy`,
     de-duplicate symmetrically equivalent configurations
-    (:func:`disorder_mc.symmetry.symmetrically_equivalent`), and return the
+    (:func:`disorderly.symmetry.symmetrically_equivalent`), and return the
     ``n_return`` lowest-energy distinct configurations.
 
     To avoid retaining ``n_attempts`` configurations in memory
@@ -147,7 +147,7 @@ def random_ewald_sampling(
             retained in memory at once. Defaults to
             ``max(5 * n_return, 50)``.
         symmetry_match_kwargs: Extra keyword arguments passed to
-            :func:`disorder_mc.symmetry.symmetrically_equivalent` (e.g.
+            :func:`disorderly.symmetry.symmetrically_equivalent` (e.g.
             ``ltol``, ``stol``) when de-duplicating.
         time_limit: Optional wall-clock time limit in seconds. Checked
             between sampling attempts; an in-progress energy evaluation is
@@ -157,7 +157,7 @@ def random_ewald_sampling(
             generated candidates concurrently.
 
     Returns:
-        Up to ``n_return`` :class:`~disorder_mc.results.SavedConfiguration`
+        Up to ``n_return`` :class:`~disorderly.results.SavedConfiguration`
         objects, sorted by ascending energy, with ``step`` set to the
         attempt index at which that configuration was generated.
     """
@@ -245,12 +245,12 @@ def random_energy_sampling(
         seed: Random seed (or an existing ``numpy.random.Generator``) for
             reproducible sampling.
         occupancy_tol: Passed to :func:`random_ordered_configuration` and
-            :func:`disorder_mc.ordering.ordering_key`.
+            :func:`disorderly.ordering.ordering_key`.
         candidate_pool_size: Maximum number of (energy-sorted) candidates
             retained in memory at once. Defaults to
             ``max(5 * n_return, 50)``.
         symmetry_match_kwargs: Extra keyword arguments passed to
-            :func:`disorder_mc.symmetry.symmetrically_equivalent` when
+            :func:`disorderly.symmetry.symmetrically_equivalent` when
             de-duplicating.
         time_limit: Optional wall-clock time limit in seconds. Checked
             between sampling attempts; an in-progress energy evaluation is

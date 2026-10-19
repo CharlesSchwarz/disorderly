@@ -2,9 +2,9 @@ import numpy as np
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.energy import disordered_ewald_energy
-from disorder_mc.monte_carlo import propose_next_configuration, run_monte_carlo
-from disorder_mc.settings import (
+from disorderly.energy import disordered_ewald_energy
+from disorderly.monte_carlo import propose_next_configuration, run_monte_carlo
+from disorderly.settings import (
     MonteCarloPolicy,
     MoveProposal,
     default_evaluate_props,
@@ -65,7 +65,7 @@ def test_default_choose_potential_move_none_when_all_sites_identical():
 
 
 def test_preserves_composition_true_for_swap(na_k_cl):
-    from disorder_mc.monte_carlo import swap_ion
+    from disorderly.monte_carlo import swap_ion
 
     swapped = swap_ion(na_k_cl, 0, 2)
     assert preserves_composition(na_k_cl, swapped)
@@ -123,9 +123,9 @@ def test_sublattice_swap_policy_only_swaps_disordered_sites(lto_parent):
     """Swaps must stay on the Li/Ti 16d sites even though
     random_ordered_configuration lists sites in a different order than the
     parent, and must never touch O or the fully ordered 8a Li."""
-    from disorder_mc.sampling import random_ordered_configuration
-    from disorder_mc.settings import sublattice_site_indices, sublattice_swap_policy
-    from disorder_mc.structures import disordered_site_indices
+    from disorderly.sampling import random_ordered_configuration
+    from disorderly.settings import sublattice_site_indices, sublattice_swap_policy
+    from disorderly.structures import disordered_site_indices
 
     configuration = random_ordered_configuration(lto_parent, np.random.default_rng(0))
     policy = sublattice_swap_policy(lto_parent)
@@ -144,8 +144,8 @@ def test_sublattice_swap_policy_only_swaps_disordered_sites(lto_parent):
 
 
 def test_sublattice_swap_policy_run_leaves_other_sites_unchanged(lto_parent):
-    from disorder_mc.sampling import random_ordered_configuration
-    from disorder_mc.settings import sublattice_swap_policy
+    from disorderly.sampling import random_ordered_configuration
+    from disorderly.settings import sublattice_swap_policy
 
     configuration = random_ordered_configuration(lto_parent, np.random.default_rng(0))
     policy = sublattice_swap_policy(lto_parent, evaluate_props=lambda s, ctx: {"energy": 0.0})
@@ -160,7 +160,7 @@ def test_sublattice_swap_policy_run_leaves_other_sites_unchanged(lto_parent):
 
 
 def test_sublattice_swap_policy_explicit_groups_restrict_swaps(na_k_cl):
-    from disorder_mc.settings import sublattice_swap_policy
+    from disorderly.settings import sublattice_swap_policy
 
     # Sites 0, 1 (Na) and 2 (K) form one group; site 3 (K) is excluded.
     policy = sublattice_swap_policy(na_k_cl, sublattices=[[0, 1, 2]], evaluate_props=lambda s, ctx: {"energy": 0.0})
@@ -182,14 +182,14 @@ def test_sublattice_swap_policy_explicit_groups_restrict_swaps(na_k_cl):
     ],
 )
 def test_sublattice_swap_policy_rejects_bad_groups(na_k_cl, sublattices, message):
-    from disorder_mc.settings import sublattice_swap_policy
+    from disorderly.settings import sublattice_swap_policy
 
     with pytest.raises(ValueError, match=message):
         sublattice_swap_policy(na_k_cl, sublattices=sublattices)
 
 
 def test_sublattice_swap_policy_requires_groups_for_ordered_parent(na_k_cl):
-    from disorder_mc.settings import sublattice_swap_policy
+    from disorderly.settings import sublattice_swap_policy
 
     with pytest.raises(ValueError, match="no disordered sites"):
         sublattice_swap_policy(na_k_cl)

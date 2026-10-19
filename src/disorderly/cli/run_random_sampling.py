@@ -8,9 +8,9 @@ from pathlib import Path
 
 from pymatgen.core import Structure
 
-from disorder_mc.cli._settings_file import load_settings_file, setting
-from disorder_mc.io import save_configurations, save_structures
-from disorder_mc.sampling import EnergyEvaluator, random_energy_sampling
+from disorderly.cli._settings_file import load_settings_file, setting
+from disorderly.io import save_configurations, save_structures
+from disorderly.sampling import EnergyEvaluator, random_energy_sampling
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -2,8 +2,8 @@
 
 from importlib.metadata import version
 
-import disorder_mc
+import disorderly
 
 
 def test_version_matches_installed_metadata():
-    assert disorder_mc.__version__ == version("disorder-mc")
+    assert disorderly.__version__ == version("disorderly")

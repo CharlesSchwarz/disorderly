@@ -2,7 +2,7 @@
 
 :func:`run_temperature` runs Metropolis Monte Carlo over Li/Ti arrangements on
 the 48 16d sites of the 168-site cell (the same cell and moves as the Ewald
-runs in ``run.py``: :func:`disorder_mc.sublattice_swap_policy`, so the 8a Li
+runs in ``run.py``: :func:`disorderly.sublattice_swap_policy`, so the 8a Li
 and O never move) at one temperature, scoring every candidate with a MACE
 energy, relaxed (positions + cell) by default. Every step also records the
 Warren-Cowley alpha of the first two 16d shells and the Ewald energy.
@@ -14,12 +14,12 @@ goes into that folder:
 - ``metadata.json`` -- the run's settings. A rerun with different settings is
   refused rather than mixed into the same trajectory.
 - ``energy_cache.jsonl`` -- the MACE energy of every arrangement evaluated so
-  far, keyed by :func:`disorder_mc.ordering_key`. Energies are deterministic,
+  far, keyed by :func:`disorderly.ordering_key`. Energies are deterministic,
   so revisited arrangements cost nothing and a restart loses no relaxation.
 - ``steps.jsonl`` -- one line per Monte Carlo step.
-- ``checkpoint.json`` -- a :class:`disorder_mc.MonteCarloCheckpoint` written
+- ``checkpoint.json`` -- a :class:`disorderly.MonteCarloCheckpoint` written
   after every step. Running again continues with
-  :func:`disorder_mc.resume_monte_carlo` exactly as an uninterrupted run
+  :func:`disorderly.resume_monte_carlo` exactly as an uninterrupted run
   would, so a job killed at its wall-time limit loses at most the one
   energy evaluation in progress.
 """
@@ -37,7 +37,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import common  # noqa: E402
 
-from disorder_mc import (  # noqa: E402
+from disorderly import (  # noqa: E402
     PrecomputedEwald,
     load_checkpoint,
     ordering_key,
@@ -99,7 +99,7 @@ def run_temperature(
     """
     import torch
 
-    from disorder_mc.mace import MACEEnergyEvaluator
+    from disorderly.mace import MACEEnergyEvaluator
 
     if threads is None:
         threads = int(os.environ.get("SLURM_CPUS_PER_TASK", os.cpu_count()))

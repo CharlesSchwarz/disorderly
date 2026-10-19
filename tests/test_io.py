@@ -3,11 +3,11 @@ import sys
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc import io as dio
-from disorder_mc.monte_carlo import run_monte_carlo
-from disorder_mc.results import SavedConfiguration
-from disorder_mc.sampling import random_ewald_sampling
-from disorder_mc.settings import MonteCarloPolicy, default_policy
+from disorderly import io as dio
+from disorderly.monte_carlo import run_monte_carlo
+from disorderly.results import SavedConfiguration
+from disorderly.sampling import random_ewald_sampling
+from disorderly.settings import MonteCarloPolicy, default_policy
 
 ROCK_SALT_COORDS = [
     [0, 0, 0],
@@ -153,7 +153,7 @@ def test_save_json_load_json_roundtrip(tmp_path):
 
 def test_load_policy_imports_and_calls_factory(tmp_path, monkeypatch):
     module_source = '''
-from disorder_mc.settings import default_policy
+from disorderly.settings import default_policy
 
 def get_policy(context=None):
     return default_policy(context=context)

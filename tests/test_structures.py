@@ -6,7 +6,7 @@ import pytest
 from pymatgen.core import Lattice, Structure
 from pymatgen.core.periodic_table import get_el_sp
 
-from disorder_mc.structures import (
+from disorderly.structures import (
     count_configurations,
     disordered_site_groups,
     disordered_site_indices,

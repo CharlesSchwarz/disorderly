@@ -14,7 +14,7 @@ from pathlib import Path
 import numpy as np
 from pymatgen.core import Structure
 
-from disorder_mc import (
+from disorderly import (
     PrecomputedEwald,
     disordered_site_indices,
     random_ordered_configuration,

@@ -1,9 +1,9 @@
 """Optional CHGNet-backed energy evaluation and Monte Carlo policies.
 
-CHGNet/ASE imports are lazy, so the base ``disorder_mc`` package remains
+CHGNet/ASE imports are lazy, so the base ``disorderly`` package remains
 importable without them. Relaxation, threading, and property handling are
 shared with other potentials via
-:class:`disorder_mc.mlip.ASECalculatorEvaluator`.
+:class:`disorderly.mlip.ASECalculatorEvaluator`.
 
 CHGNet does not use the oxidation states on the input structure; it infers
 charge information itself (via predicted magnetic moments).
@@ -15,8 +15,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, ClassVar
 
-from disorder_mc.mlip import ASECalculatorEvaluator, missing_dependency_error, mlip_policy
-from disorder_mc.settings import MonteCarloPolicy
+from disorderly.mlip import ASECalculatorEvaluator, missing_dependency_error, mlip_policy
+from disorderly.settings import MonteCarloPolicy
 
 __all__ = ["CHGNetEnergyEvaluator", "chgnet_policy", "get_energy_evaluator"]
 
@@ -41,7 +41,7 @@ class CHGNetEnergyEvaluator(ASECalculatorEvaluator):
 
     Relaxation options (``relax``, ``relax_cell``, ``fmax``, ``max_steps``,
     ``logfile``, ``logm_warning_tol``) are keyword-only and documented on
-    :class:`~disorder_mc.mlip.ASECalculatorEvaluator`. Properties are stored
+    :class:`~disorderly.mlip.ASECalculatorEvaluator`. Properties are stored
     under ``"energy"`` and ``"chgnet_energy"``; ``CHGNetCalculator`` reports
     total (not per-atom) energies in eV.
     """
@@ -52,7 +52,7 @@ class CHGNetEnergyEvaluator(ASECalculatorEvaluator):
     calculator_kwargs: dict[str, Any] = field(default_factory=dict)
     label: str = field(default="CHGNet", kw_only=True)
 
-    _install_hint: ClassVar[str] = "install disorder-mc with the 'chgnet' extra or install ase and chgnet"
+    _install_hint: ClassVar[str] = "install disorderly with the 'chgnet' extra or install ase and chgnet"
 
     def _build_calculator(self):
         try:
@@ -84,7 +84,7 @@ def chgnet_policy(
     """Create a swap-based Monte Carlo policy scored by CHGNet energy.
 
     The move-selection and validation behavior matches
-    :func:`disorder_mc.settings.default_policy`; only the energy evaluator is
+    :func:`disorderly.settings.default_policy`; only the energy evaluator is
     replaced.
     """
     evaluator = get_energy_evaluator(

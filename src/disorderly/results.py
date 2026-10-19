@@ -191,7 +191,7 @@ class MonteCarloTrajectory:
 @dataclass
 class MonteCarloCheckpoint:
     """Everything needed to continue a Monte Carlo run exactly where it
-    stopped (see :func:`disorder_mc.monte_carlo.resume_monte_carlo`).
+    stopped (see :func:`disorderly.monte_carlo.resume_monte_carlo`).
 
     Attributes:
         step: The last completed step.

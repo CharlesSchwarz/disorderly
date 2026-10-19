@@ -1,9 +1,9 @@
 """Optional MACE-backed energy evaluation and Monte Carlo policies.
 
-This module keeps MACE/ASE imports lazy so the base ``disorder_mc`` package
+This module keeps MACE/ASE imports lazy so the base ``disorderly`` package
 remains importable without optional machine-learning potential dependencies.
 Relaxation, threading, and property handling are shared with other
-potentials via :class:`disorder_mc.mlip.ASECalculatorEvaluator`.
+potentials via :class:`disorderly.mlip.ASECalculatorEvaluator`.
 """
 
 from __future__ import annotations
@@ -12,8 +12,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, ClassVar
 
-from disorder_mc.mlip import ASECalculatorEvaluator, missing_dependency_error, mlip_policy
-from disorder_mc.settings import MonteCarloPolicy
+from disorderly.mlip import ASECalculatorEvaluator, missing_dependency_error, mlip_policy
+from disorderly.settings import MonteCarloPolicy
 
 __all__ = ["MACEEnergyEvaluator", "get_energy_evaluator", "mace_policy"]
 
@@ -31,7 +31,7 @@ class MACEEnergyEvaluator(ASECalculatorEvaluator):
 
     Relaxation options (``relax``, ``relax_cell``, ``fmax``, ``max_steps``,
     ``logfile``, ``logm_warning_tol``) are keyword-only and documented on
-    :class:`~disorder_mc.mlip.ASECalculatorEvaluator`. Properties are stored
+    :class:`~disorderly.mlip.ASECalculatorEvaluator`. Properties are stored
     under ``"energy"`` and ``"mace_energy"``.
     """
 
@@ -40,7 +40,7 @@ class MACEEnergyEvaluator(ASECalculatorEvaluator):
     calculator_kwargs: dict[str, Any] = field(default_factory=dict)
     label: str = field(default="MACE", kw_only=True)
 
-    _install_hint: ClassVar[str] = "install disorder-mc with the 'mace' extra or install ase and mace-torch"
+    _install_hint: ClassVar[str] = "install disorderly with the 'mace' extra or install ase and mace-torch"
 
     def _build_calculator(self):
         try:
@@ -70,7 +70,7 @@ def mace_policy(
     """Create a swap-based Monte Carlo policy scored by MACE energy.
 
     The move-selection and validation behavior matches
-    :func:`disorder_mc.settings.default_policy`; only the energy evaluator is
+    :func:`disorderly.settings.default_policy`; only the energy evaluator is
     replaced.
     """
     evaluator = get_energy_evaluator(

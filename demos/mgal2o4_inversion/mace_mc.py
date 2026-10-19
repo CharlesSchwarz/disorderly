@@ -3,7 +3,7 @@
 :func:`run_temperature` runs Metropolis Monte Carlo over Mg/Al arrangements on
 all 48 cation sites of a 112-atom (16 formula unit) cell at one temperature,
 scoring every candidate with a relaxed (positions + cell) MACE energy. Swaps
-are restricted to cation sites with :func:`disorder_mc.sublattice_swap_policy`,
+are restricted to cation sites with :func:`disorderly.sublattice_swap_policy`,
 so oxygen never moves; any Mg/Al pair may exchange, so the inversion x can
 change.
 
@@ -17,9 +17,9 @@ goes into that folder:
   evaluated so far. Relaxations are deterministic, so revisited
   configurations cost nothing and a restart loses no relaxation.
 - ``steps.jsonl`` -- one line per Monte Carlo step.
-- ``checkpoint.json`` -- a :class:`disorder_mc.MonteCarloCheckpoint` written
+- ``checkpoint.json`` -- a :class:`disorderly.MonteCarloCheckpoint` written
   after every step. Running again continues with
-  :func:`disorder_mc.resume_monte_carlo` exactly as an uninterrupted run
+  :func:`disorderly.resume_monte_carlo` exactly as an uninterrupted run
   would, so a job killed at its wall-time limit loses at most the one
   relaxation in progress.
 """
@@ -37,7 +37,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import common  # noqa: E402
 
-from disorder_mc import (  # noqa: E402
+from disorderly import (  # noqa: E402
     load_checkpoint,
     resume_monte_carlo,
     run_monte_carlo,
@@ -91,7 +91,7 @@ def run_temperature(
     """
     import torch
 
-    from disorder_mc.mace import MACEEnergyEvaluator
+    from disorderly.mace import MACEEnergyEvaluator
 
     if initial not in ("normal", "random"):
         raise ValueError(f"initial must be 'normal' or 'random', got {initial!r}.")

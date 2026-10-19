@@ -4,11 +4,11 @@ from unittest.mock import MagicMock
 
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc._warning_filters import should_suppress_logm_warning
-from disorder_mc.mace import MACEEnergyEvaluator, mace_policy
-from disorder_mc.mlip import _warn_unless_small_logm_error
-from disorder_mc.monte_carlo import run_monte_carlo
-from disorder_mc.settings import default_choose_potential_move, default_is_move_allowed
+from disorderly._warning_filters import should_suppress_logm_warning
+from disorderly.mace import MACEEnergyEvaluator, mace_policy
+from disorderly.mlip import _warn_unless_small_logm_error
+from disorderly.monte_carlo import run_monte_carlo
+from disorderly.settings import default_choose_potential_move, default_is_move_allowed
 
 
 def test_mace_policy_uses_default_moves_and_mace_evaluator(monkeypatch):

@@ -8,7 +8,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-from disorder_mc.io import load_trajectory
+from disorderly.io import load_trajectory
 
 HERE = Path(__file__).parent
 RESULTS = HERE / "cubic_LLZO_parent_T1200K_monte_carlo_results"

@@ -1,7 +1,7 @@
 # Design notes
 
 This document records the scientific conventions and design decisions in
-`disorder_mc`: what the package assumes, how its definitions are chosen, and
+`disorderly`: what the package assumes, how its definitions are chosen, and
 where those choices have consequences for results. Function docstrings give
 the full parameter details.
 
@@ -298,7 +298,7 @@ limits.
 
 `MonteCarloStep.properties` describes the *proposed* configuration at a step,
 while `MonteCarloStep.energy` is the energy of the *current* configuration.
-The analysis functions in `disorder_mc.analysis` always report the current
+The analysis functions in `disorderly.analysis` always report the current
 configuration: `property_series` carries each property forward from the most
 recent accepted step. `plot_trajectory` plots the energy, optionally the
 acceptance rate over a trailing window of moves, and the properties named in
@@ -326,7 +326,7 @@ and cell with `FrechetCellFilter`), reports `relax_converged` and
 `relax_steps`, creates one calculator per thread for parallel sampling, and
 returns the energy as `{"energy": ..., "<label>_energy": ...}`.
 
-`disorder_mc.mace` and `disorder_mc.chgnet` only construct the calculator.
+`disorderly.mace` and `disorderly.chgnet` only construct the calculator.
 They are separate optional extras because their dependencies may conflict, and
 both are imported only when used. Energies are total energies in eV. Neither
 backend reads oxidation states from the structure. Other potentials (for
@@ -359,7 +359,7 @@ initial structure and temperature to the policy's `context` (as
 `"disordered_structure"`, `"initial_structure"` and `"temperature"`, without
 overwriting keys the policy sets), so a module-level `policy` can use the
 parent given on the command line. Commented reference settings files are in
-`src/disorder_mc/cli/` (`*_settings_reference.py`). `io.load_policy` provides the same pattern for
+`src/disorderly/cli/` (`*_settings_reference.py`). `io.load_policy` provides the same pattern for
 an importable module by dotted name.
 
 Trajectories, checkpoints, and saved configurations are written as JSON, using

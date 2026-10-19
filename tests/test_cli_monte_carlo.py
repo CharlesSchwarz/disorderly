@@ -2,7 +2,7 @@ import json
 
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.cli.run_monte_carlo import main
+from disorderly.cli.run_monte_carlo import main
 
 
 def test_run_monte_carlo_cli_uses_settings_file_and_temperature_output_dir(tmp_path):
@@ -24,7 +24,7 @@ def test_run_monte_carlo_cli_uses_settings_file_and_temperature_output_dir(tmp_p
     settings_path = tmp_path / "monte_carlo_settings.py"
     settings_path.write_text(
         """
-from disorder_mc.settings import MonteCarloPolicy, MoveProposal, default_is_move_allowed
+from disorderly.settings import MonteCarloPolicy, MoveProposal, default_is_move_allowed
 
 num_steps = 4
 num_structures_to_save = 2
@@ -75,7 +75,7 @@ def test_run_monte_carlo_cli_accepts_module_level_policy_with_run_context(tmp_pa
     settings_path = tmp_path / "monte_carlo_settings.py"
     settings_path.write_text(
         """
-from disorder_mc.settings import MonteCarloPolicy, MoveProposal, default_is_move_allowed
+from disorderly.settings import MonteCarloPolicy, MoveProposal, default_is_move_allowed
 
 num_steps = 3
 seed = 0
@@ -125,7 +125,7 @@ def test_run_monte_carlo_cli_prints_progress(tmp_path, capsys):
     initial.to(filename=str(initial_path))
 
     settings_template = """
-from disorder_mc.settings import MonteCarloPolicy, MoveProposal, default_is_move_allowed
+from disorderly.settings import MonteCarloPolicy, MoveProposal, default_is_move_allowed
 
 num_steps = 8
 seed = 0

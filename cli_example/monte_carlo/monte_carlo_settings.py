@@ -18,8 +18,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from disorder_mc import MonteCarloPolicy, MoveProposal, disordered_ewald_energy
-from disorder_mc.settings import default_is_move_allowed
+from disorderly import MonteCarloPolicy, MoveProposal, disordered_ewald_energy
+from disorderly.settings import default_is_move_allowed
 
 
 ## Note: the run temperature is not included in the settings file, it is passed directly as a parameter.
@@ -49,7 +49,7 @@ site_tol = 0.5  # Angstrom; a Li site counts as occupied if a Li lies within thi
 ## energy_evaluator takes an ordered structure and returns its energy in eV (a float), or a dict with an "energy" key plus any other properties to record.
 
 ## CHGNet energy of the unrelaxed configuration (Li on the ideal parent site positions). Needs pip install -e ".[chgnet]"; the pretrained model downloads on first use.
-from disorder_mc.chgnet import CHGNetEnergyEvaluator
+from disorderly.chgnet import CHGNetEnergyEvaluator
 energy_evaluator = CHGNetEnergyEvaluator(
     model_name="0.3.0",  # Pretrained CHGNet model; or set model_path to a fine-tuned model file.
     device="cpu",  # CHGNet device; use "cpu" or a GPU device such as "cuda".

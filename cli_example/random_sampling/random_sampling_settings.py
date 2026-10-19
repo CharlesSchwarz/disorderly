@@ -42,7 +42,7 @@ energy_evaluator is a callable that takes a structure and returns a float energy
 
 
 ## Example MACE energy evaluator settings. Set model_path to your trained MACE model file.
-from disorder_mc.mace import MACEEnergyEvaluator
+from disorderly.mace import MACEEnergyEvaluator
 energy_evaluator = MACEEnergyEvaluator(  
     model_path="/path/to/mace.model",  # Path to the trained MACE model file.
     device="cpu",  # MACE device; use "cpu" or a GPU device such as "cuda".

@@ -11,10 +11,10 @@ from typing import Any
 
 from pymatgen.core import Structure
 
-from disorder_mc.cli._settings_file import load_settings_file, setting
-from disorder_mc.io import save_structures, save_trajectory
-from disorder_mc.monte_carlo import run_monte_carlo
-from disorder_mc.settings import MonteCarloPolicy, default_policy
+from disorderly.cli._settings_file import load_settings_file, setting
+from disorderly.io import save_structures, save_trajectory
+from disorderly.monte_carlo import run_monte_carlo
+from disorderly.settings import MonteCarloPolicy, default_policy
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -112,7 +112,7 @@ def _load_policy(settings, disordered_structure, initial_structure, temperature:
     """Return the settings file's policy with the run inputs added to its context.
 
     The policy comes from a module-level ``policy``, else ``get_policy(...)``,
-    else :func:`~disorder_mc.settings.default_policy`. ``disordered_structure``,
+    else :func:`~disorderly.settings.default_policy`. ``disordered_structure``,
     ``initial_structure`` and ``temperature`` are added to a copy of its
     ``context`` (keys the policy already sets are kept), so a module-level
     ``policy`` can use the parent structure given on the command line.

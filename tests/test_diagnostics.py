@@ -4,9 +4,9 @@ import numpy as np
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.diagnostics import check_proposal_symmetry
-from disorder_mc.monte_carlo import run_monte_carlo
-from disorder_mc.settings import DetailedBalanceWarning, MonteCarloPolicy, MoveProposal, default_policy
+from disorderly.diagnostics import check_proposal_symmetry
+from disorderly.monte_carlo import run_monte_carlo
+from disorderly.settings import DetailedBalanceWarning, MonteCarloPolicy, MoveProposal, default_policy
 
 # A "star" of four sites in a 10 A cubic cell: a center with three leaves
 # 2 A away. Leaves are >= 2.8 A from each other, so within a 2.5 A hop radius

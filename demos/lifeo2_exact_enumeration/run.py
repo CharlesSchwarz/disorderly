@@ -11,10 +11,10 @@ The script:
 1. Enumerates all orderings and their Ewald energies.
 2. Groups them into symmetry classes by canonicalizing each ordering under
    the parent's site permutations, and checks that (a) the class sizes match
-   :func:`disorder_mc.configuration_degeneracy`, (b) they sum to 12870, and
+   :func:`disorderly.configuration_degeneracy`, (b) they sum to 12870, and
    (c) every member of a class has the same energy.
 3. Computes exact <E>(T) and C(T) from the full Boltzmann sum.
-4. Runs Metropolis Monte Carlo with :func:`disorder_mc.sublattice_swap_policy`
+4. Runs Metropolis Monte Carlo with :func:`disorderly.sublattice_swap_policy`
    at temperatures around the exact heat-capacity peak, in parallel.
 
 With ``--mace MODEL``, it instead reuses the saved enumeration and computes
@@ -50,7 +50,7 @@ import time
 import numpy as np
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc import (
+from disorderly import (
     KB_EV_PER_K,
     configuration_degeneracy,
     disordered_ewald_energy,
@@ -239,7 +239,7 @@ _MACE_EVALUATORS: dict = {}
 def _mace_worker(model_path: str, device: str, fmax: float, occupations: np.ndarray) -> dict:
     """Single-point MACE energies of every ordering in ``occupations`` and a
     relaxed (positions + cell) energy of the first."""
-    from disorder_mc.mace import MACEEnergyEvaluator
+    from disorderly.mace import MACEEnergyEvaluator
 
     key = (model_path, device, fmax)
     if key not in _MACE_EVALUATORS:

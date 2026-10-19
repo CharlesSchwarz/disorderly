@@ -13,7 +13,7 @@ Moves are the default composition-preserving swaps of a Cu and an Au atom,
 scored by MACE energy. Each step records the energy and the L1_2 order
 parameter ``order`` (1 = perfect L1_2, ~0 = random) in ``trajectory.json``.
 
-Same as the reference settings file ``src/disorder_mc/cli/monte_carlo_settings_reference.py``, with
+Same as the reference settings file ``src/disorderly/cli/monte_carlo_settings_reference.py``, with
 the order parameter added to the recorded properties.
 """
 
@@ -24,9 +24,9 @@ import sys
 
 import numpy as np
 
-from disorder_mc import MonteCarloPolicy
-from disorder_mc.mace import MACEEnergyEvaluator
-from disorder_mc.settings import default_choose_potential_move
+from disorderly import MonteCarloPolicy
+from disorderly.mace import MACEEnergyEvaluator
+from disorderly.settings import default_choose_potential_move
 
 
 num_steps = 10000

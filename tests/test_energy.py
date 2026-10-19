@@ -1,7 +1,7 @@
 import pytest
 from pymatgen.core import Lattice, Structure
 
-from disorder_mc.energy import disordered_ewald_energy, effective_site_charges
+from disorderly.energy import disordered_ewald_energy, effective_site_charges
 
 ROCK_SALT_COORDS = [
     [0, 0, 0],
@@ -87,8 +87,8 @@ def lto_parent() -> Structure:
 def test_precomputed_ewald_matches_full_ewald_for_ordered_configurations(lto_parent):
     import numpy as np
 
-    from disorder_mc.energy import PrecomputedEwald
-    from disorder_mc.sampling import random_ordered_configuration
+    from disorderly.energy import PrecomputedEwald
+    from disorderly.sampling import random_ordered_configuration
 
     model = PrecomputedEwald(lto_parent)
     rng = np.random.default_rng(0)
@@ -101,7 +101,7 @@ def test_precomputed_ewald_matches_full_ewald_for_ordered_configurations(lto_par
 
 
 def test_precomputed_ewald_matches_full_ewald_for_disordered_parent(lto_parent):
-    from disorder_mc.energy import PrecomputedEwald
+    from disorderly.energy import PrecomputedEwald
 
     assert PrecomputedEwald(lto_parent)(lto_parent) == pytest.approx(disordered_ewald_energy(lto_parent), abs=1e-8)
 
@@ -110,7 +110,7 @@ def test_precomputed_ewald_charged_cell_with_vacancy(nacl):
     """A missing site carries zero charge and leaves the cell charged; the
     charged-cell term must match pymatgen's. Convergence parameters differ
     slightly because the full calculation sees one fewer site."""
-    from disorder_mc.energy import PrecomputedEwald
+    from disorderly.energy import PrecomputedEwald
 
     model = PrecomputedEwald(nacl)
     vacant = nacl.copy()
@@ -119,7 +119,7 @@ def test_precomputed_ewald_charged_cell_with_vacancy(nacl):
 
 
 def test_precomputed_ewald_rejects_off_lattice_structures(nacl):
-    from disorder_mc.energy import PrecomputedEwald
+    from disorderly.energy import PrecomputedEwald
 
     model = PrecomputedEwald(nacl)
     strained = nacl.copy()
