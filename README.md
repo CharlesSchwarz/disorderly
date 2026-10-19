@@ -2,9 +2,9 @@
   <img src="docs/images/logo.png" alt="Disorderly logo" width="480">
 </p>
 
-# disorder_mc
+# Disorderly
 
-`disorder_mc` takes a disordered crystal structure and finds its low-energy ordered configurations. It can sample
+Disorderly takes a disordered crystal structure and finds its low-energy ordered configurations. It can sample
 or exhaustively enumerate the symmetrically distinct orderings, or explore
 them at finite temperature with Metropolis Monte Carlo. Each configuration is
 scored directly by the energy model you choose: Ewald electrostatics, a
@@ -27,6 +27,7 @@ scripts and LLM-based workflows. Features:
 
 ## Installation
 
+Disorderly is installed as `disorder-mc` and imported as `disorder_mc`.
 Install directly from GitHub:
 
 ```bash
@@ -157,13 +158,13 @@ the tolerances and units used throughout.
 
 ## Citing
 
-If you use `disorder_mc` in published work, please cite it using the metadata
+If you use Disorderly in published work, please cite it using the metadata
 in `CITATION.cff` (GitHub's "Cite this repository" button gives BibTeX and
 APA formats).
 
-## Packages used by disorder_mc
+## Packages used by Disorderly
 
-If you publish results obtained with `disorder_mc`, please also cite the
+If you publish results obtained with Disorderly, please also cite the
 packages it builds on.
 
 - [pymatgen](https://pymatgen.org/) -- structures, symmetry analysis,

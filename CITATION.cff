@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
-title: "disorder_mc"
+title: "Disorderly"
 abstract: >-
   Tools for exploring ordered configurations of disordered crystal structures,
   built on pymatgen: symmetry analysis, configuration degeneracy,
