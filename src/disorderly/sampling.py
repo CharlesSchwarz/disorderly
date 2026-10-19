@@ -347,14 +347,35 @@ def random_energy_sampling(
                         )
                     break
 
+    return _deduplicate(pool, n_return, symmetry_match_kwargs)
+
+
+def _deduplicate(
+    pool: list[SavedConfiguration], n_return: int, symmetry_match_kwargs: dict[str, Any]
+) -> list[SavedConfiguration]:
+    """First ``n_return`` symmetrically distinct members of ``pool`` (already
+    sorted by ascending energy).
+
+    Candidates are first compared by ordering key: an identical key means an
+    identical decoration of the parent, hence a duplicate, so the expensive
+    ``StructureMatcher`` comparison only runs for orderings not seen before.
+    Every key already met is remembered, so a repeat of an ordering that
+    was found to duplicate a kept configuration is also skipped.
+    """
     distinct: list[SavedConfiguration] = []
-    for candidate in pool:  # already sorted by ascending energy
+    seen_keys: set[str] = set()
+    for candidate in pool:
         if len(distinct) >= n_return:
             break
+        key = candidate.ordering_key
+        if key is not None and key in seen_keys:
+            continue
         is_duplicate = any(
             symmetrically_equivalent(candidate.structure, kept.structure, **symmetry_match_kwargs)
             for kept in distinct
         )
+        if key is not None:
+            seen_keys.add(key)
         if not is_duplicate:
             distinct.append(candidate)
 
