@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/images/logo.png" alt="Disorderly logo" width="480">
+</p>
+
 # disorder_mc
 
 `disorder_mc` takes a disordered crystal structure and finds its low-energy ordered configurations. It can sample
